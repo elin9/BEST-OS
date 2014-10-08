@@ -1,0 +1,113 @@
+#SECOND ATTEMPT:
+
+def main():
+    print("Content-type: text/html")
+    if cookie_string:  #if user is already logged in
+    	aCookie = Cookie.SimpleCookie(cookie_string)
+    	#if aCookie['app_name'].value == 'best-os':
+    	    print("")
+    	    print("<html><head><title>Login</title></head><body>")
+            print("Welcome back! I already have your cookie.<br>")
+   	    print("Last login time: " + str(aCookie['current_time'].value))
+    else:  #if user is just logging in 
+	#formName = form['username'].value
+	#formPass = form['password'].value
+        #user_in_db = checkUn(c, formName)
+        #pass_in_db = checkPassword(formName)
+        
+        #if formName == user_in_db:  #if username entered is in database
+            #if formPass == pass_in_db: #if password entered matches the one in the database
+            	sendCookie()
+            	print("")
+    		print("<html><head><title>Login</title></head><body>")
+    		print("Sent you a cookie!<br>")
+		#print("<h1> Hi " + str(user_in_db) + "! You are now logged in.</h1>")
+		#print("<h2> Login time: " + str(loginCookie['current_time'].value) + "</h2>")
+                #print("<h2> Session ID: " + str(sessionID) + "</h2>")
+	    #else:
+	    	#print("")
+	    	#print("<html><head><title>Login</title></head><body>")
+	        #print("Incorrect Password! Try again.<br>")
+	        #redirect to login...?
+	#else: #if username entered is not in database
+            #print("")
+            #print("<html><head>Login</head><body>")
+            #print("<h1>Sorry, you are not registered. </h1>")
+            #print("<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account. </h2>")
+    print("</body></html>")
+    conn.close()
+
+def sendCookie():
+    aCookie = Cookie.SimpleCookie()
+    #aCookie['app_name'] = 'best-os'
+    aCookie['current_time'] = t
+    print(aCookie)
+    
+def checkUn(c,variable):
+    c.execute('select username from users where username = ?;',(variable,))
+    n = str("%s" % c.fetchone())
+    return n
+
+def checkPassword(usrname):
+    c.execute('select password from users where username = ?;',(usrname,))
+    p = str("%s" % c.fetchone())
+    return p
+
+main()
+
+
+
+
+****************************************
+#FIRST ATTEMPT:
+
+def anAttempt():
+    print("Content-type: text/html")
+    if cookie_string:  #if user is already logged in
+	loginCookie = Cookie.SimpleCookie(cookie_string)
+	saved_SessionID = loginCookie['sessionID'].value
+
+	c.execute('select * from users where sessionID=?', (saved_sessionID,))
+	allResults = c.fetchall()
+	if len(all_results) > 0:  #if user's sessionID matches
+	    saved_name = allResults[0][0]
+	    print("")
+	    print("<html><head>Login</head><body>")
+	    print("<h1> Welcome back, " + str(saved_name) + "! I already have your cookie.</h1>")
+	    print("<h2> Last login time: " + str(loginCookie['current_time'].value) + "</h2>")
+	else:  #if user's sessionID doesn't match
+            print("")
+            print("<html><head>Login</head><body>")
+            print("<h1>IMPOSTER! Wrong Session ID.</h1>")
+
+    else:  #if user is just logging in
+	form = cgi.FieldStorage()
+	name = form['name'].value
+
+	c.execute('select * from users where username=?;', (name,))
+	allResults = c.fetchall()
+	if len(allResults) > 0:  #if user is registered
+	    import uuid
+            sessionID = str(uuid.uuid4())
+	
+	    c.execute('update users set sessionID=? where username=?', (sessionID, name))
+	    conn.commit()
+
+	    loginCookie = Cookie.SimpleCookie()
+	    loginCookie['current_time'] = t
+	    loginCookie['sessionID'] = sessionID
+
+	    print(c)
+	    print("")
+            print("<html><head>Login</head><body>")
+            print("<h1> Hi " + str(name) + "! You are now logged in. Also sending you a cookie! Om nom. </h1>")
+	    print("<h2> Session ID: " + str(sessionID) + "</h2>")
+	    print("<h2> Login time: " + str(loginCookie['current_time'].value) + "</h2>")
+	else:  #if user is not registered
+            print("")
+            print("<html><head>Login</head><body>")
+            print("<h1>Sorry, you are not registered.</h1>")
+            print("<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account. </h2>")
+    print("</body>")
+    print("</html>")
+    conn.close()
