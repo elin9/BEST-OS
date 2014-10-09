@@ -10,7 +10,7 @@ def main():
     print("")
     print("<html><head><title>print database</title></head>")
     print("<body>")
-    print("username, password<br><br>")
+    print("username, password, email, session id<br><br>")
     conn = sqlite3.connect('BESTOS_DATABASE.db')
     c = conn.cursor()
     for row in c.execute('select * from users'):

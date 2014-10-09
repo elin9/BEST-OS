@@ -6,7 +6,6 @@ import cgitb
 import os 
 import Cookie
 import sqlite3
-import logging
 cgitb.enable()
 
 t = str(datetime.datetime.now())
@@ -18,30 +17,37 @@ c = conn.cursor()
 
 def main():
 	print "Content-type: text/html"
+	all_results = []
+	
 	if cookie_string:  #if user is already logged in
 		aCookie = Cookie.SimpleCookie(cookie_string)
 		savedSID = aCookie['sessionID'].value
 	
 		c.execute('select * from users where sessionID=?', (savedSID,))
 		all_results = c.fetchall()
-		if len(all_results) > 0:
-			savedName = all_results[0][0]
-		        print 
-		        print "<html><head><title>Login</title></head>"
-		        print "<body>"
-		        print "<h1>Welcome back, " + savedName + "!</h1>"
-			print "<h2>I already have your cookie. <br> Last login time: " + aCookie['current_time'].value + "</h2>"
-		else:
-		        print 
-		        print "<html>"
-		        print "<body>"
-		        print "<h1>Imposter! SessionID Mismatch: Someone else has logged into your account.</h1>"
+		
+	if len(all_results) > 0:
+		savedName = all_results[0][0]
+	 	print 
+	        print "<html><head><title>Login</title></head>"
+	        print "<body>"
+	        print "<h1>Welcome back, " + savedName + "!</h1>"
+		print "<h2>I already have your cookie. <br> Last login time: " + aCookie['current_time'].value + "</h2><br>"
+		print '<form method = post action = "logout.py">'
+		print '<input type = hidden name = "sid" value = ' + str(savedSID) + '>'
+		print '<input type=submit name = "logout" value = "Logout">' #logout button here
+		print "</form>"
 	        
 	else:  #if user is just logging in
-		formName = form['username'].value
-		formPass = form['password'].value
-		dbName = checkUsername(c, formName)
 		
+		formName = form.getvalue("username")
+		formPass = form.getvalue("password")
+		
+		#if formName == None: 
+		#put login.html form here instead
+		#else: everything below
+		
+		dbName = checkUsername(c, formName)
 		if formName == dbName:          #if username entered is in database
 			dbPass = checkPassword(c, dbName)
 			if formPass == dbPass:  #if password entered matches the one in the database
@@ -61,6 +67,10 @@ def main():
 			        print "<h1>Hi, " + dbName + "! You are now logged in. Also sent you a cookie. Yum.</h1>"
 				print "<h2>Login time: " + aCookie['current_time'].value + "</h2>"
 				print "<h2>SessionID: " + sessionID + "</h2>"
+				print '<form method = post action = "logout.py">'
+				print '<input type = hidden name = "sid" value = ' + str(sessionID) + '>'
+				print '<input type=submit name = "logout" value = "Logout">' #logout button here
+				print "</form>"
 			else:  #if incorrect password
 				print
 				print "<html><head><title>Login</title></head><body>"
