@@ -42,7 +42,7 @@ def main():
 	        print "<h1>Welcome back, " + savedName + "!</h1>"
 	        print "<h2> I already have your cookie. </h2>"
 		print "<h2> Last login time: " + aCookie['current_time'].value + "</h2><br>"
-		print '<h2>Go <a href="http://elin9.rochestercs.org/experimenting">here</a> to homepage.</h2>'
+		print '<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/index.php">here</a> to homepage.</h2>'
 		print '<form method = post action = "logout.py">'
 		print '<input type = hidden name = "sid" value = ' + str(savedSID) + '>'
 		print '<input type=submit name = "logout" value = "Logout">' #logout button here
@@ -106,7 +106,7 @@ def main():
 						print "<h2>Login time: " + aCookie['current_time'].value + "</h2>"
 						print "<h2>SessionID: " + sessionID + "</h2>"
 						print "<h2>Cookie Expiration: " + str(expires) + "</h2>"
-						print '<h2>Go <a href="http://elin9.rochestercs.org/experimenting">here</a> to homepage.</h2>'
+						print '<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/index.php">here</a> to homepage.</h2>'
 						print '<form method = post action = "logout.py">'
 						print '<input type = hidden name = "sid" value = ' + str(sessionID) + '>'
 						print '<input type=submit name = "logout" value = "Logout">' #logout button here
