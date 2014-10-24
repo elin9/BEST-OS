@@ -1,0 +1,33 @@
+body{
+   min-width: 550px;
+}
+
+#container {
+
+   padding-left: 200px;
+   padding-right: 150px;
+}
+
+#container .column {
+   position: relative;
+   float: left;
+}
+
+#center{
+   width:100%;
+}
+
+#left{
+   width: 250px;
+   right: 200px;
+   margin-left: -100%;
+}
+
+#right{
+   width: 150px;
+   margin-right: -150px;
+}
+
+#footer{
+   clear: both;
+}
