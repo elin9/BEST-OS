@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Week 8</title>
+<script src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  console.log("Hello");
+  
+  $("#getStuffButton").click(function() {
+		console.log("clicked!");
+		
+		$.ajax(
+			{
+				url: "cgi-bin/week8.py",
+				type: "GET",
+				dataType: "text", //also "json"
+				
+				success: function(dat) { //when the server is done it will return this section
+					console.log("Received: "+ 'dat.name'); //every data has a name
+				},	
+				
+				//error: function(){}
+			}
+		);
+
+  });
+  
+}); 
+
+</script>
+</head>
+
+<body>
+
+<h1>My title</h1>
+
+<button id="getStuffButton">Get stuff!</button>
+
+<div id="stuff"></div>
+
+</body>
+</html>

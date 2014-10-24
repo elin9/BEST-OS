@@ -1,0 +1,7 @@
+[20-Oct-2014 14:50:15 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 26
+[20-Oct-2014 14:50:18 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 26
+[20-Oct-2014 14:50:20 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 26
+[20-Oct-2014 14:50:21 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 26
+[20-Oct-2014 14:55:15 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 24
+[20-Oct-2014 14:55:18 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test.php on line 24
+[20-Oct-2014 14:55:32 America/Denver] PHP Fatal error:  Call to undefined function str() in /home1/elinninr/public_html/test.php on line 24
