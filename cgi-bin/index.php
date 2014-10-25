@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>try</title>
+<title>Home</title>
 <link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
-<script src="http://elin9.rochestercs.org/cgi-bin/jquery-1.11.0.js"></script>
-<script src="http://elin9.rochestercs.org/cgi-bin/menu.js"></script>
+<script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
+<script src="http://elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
+<script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
 <script type="text/javascript">
 
 $(document).ready(function() {
   console.log("Loaded!");
+  
+  if ($.cookie("name") != undefined) {
+       $("#right").append("hello " + $.cookie("name") + "!<br>");
+  }
+          
   $('#postsomething').ajaxForm(function() { 
   
       var title = $('#postsomething').find('input[name="title"]').val();
@@ -28,7 +34,7 @@ $(document).ready(function() {
         url: "http://elin9.rochestercs.org/cgi-bin/postTextbook.py",
         type: "POST",
         dataType: "text",
-        data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, otherNotes: othernotes, courseNum: courseNum, photo: photo, price: price},
+        data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, courseNum: courseNum, photo: photo, price: price},
 
         success: function(data) {
           console.dir(data);
@@ -47,7 +53,29 @@ $(document).ready(function() {
     );
   });
 
+  $('#login').ajaxForm(function() { 
+      var un = $('#login').find('input[name="username"]').val();
+      var ps = $('#login').find('input[name="password"]').val();
+      $.ajax(
+      {
+        url: "http://elin9.rochestercs.org/cgi-bin/login2.py",
+        type: "POST",
+        dataType: "text",
+        data: {username: un, password: ps,},
 
+        success: function(data) {
+          console.dir(data);
+          if ($.cookie("name") === undefined){
+             $("#right").append(data + "<br>");
+          } else{
+             console.log("logged in!");
+             $("#right").append("hello " + data + "!<br>");
+             window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
+          }
+        },
+      }
+    );
+  });
 
 });
 
@@ -55,29 +83,30 @@ $(document).ready(function() {
 </head>
 <body>
 	<div id="header">
-		<div class = "column" id ="banner">
-		<img src = "http://elin9.rochestercs.org/img/banner.png">
+		<div id ="banner">
+			<img src = "http://elin9.rochestercs.org/img/banner.png">
 		</div>
-	 	<div class = "column" id = "loginbox">
-	 	<?php
-		$cookie_name = "sessionID";
-		if(!isset($_COOKIE[$cookie_name])) {
-		    echo "<form id = \"login\" method = post action = \"login2.py\">";
-		    echo "Username:<input name=\"username\" type=text size=\"20\" required/>";
-		    echo "Password:<input name=\"password\" type=password size=\"20\" required/>";
-		    echo "<input type = submit name = \"submit\" value = \"Login\"/></form><br>";
-		} else {
-		    echo "<a href = \"http://elin9.rochestercs.org/cgi-bin/deleteUser.py\"><button type = button value = \"Delete your account\"/></a>";
-		    echo "<form method = post action = \"http://elin9.rochestercs.org/cgi-bin/logout.py\">";
-		    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
-		    echo "<input type=submit name = \"logout\" value = \"Logout\"></form>";
-		}
-		?>
+	 	<div id = "loginbox">
+		 	<?php
+			$cookie_name = "sessionID";
+			if(!isset($_COOKIE[$cookie_name])) {
+			    echo "<form id = \"login\" method = post action = \"login2.py\">";
+			    echo "Username:<input name=\"username\" type=text size=\"20\" required/> ";
+			    echo "Password:<input name=\"password\" type=password size=\"20\" required/>";
+			    echo "<input type = submit name = \"submit\" value = \"Login\"/></form><br>";
+			} else {
+			    echo "<form style = \"display: inline;\" method = post action = \"http://elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
+			    echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
+			    echo "<form style = \"display: inline;\"method = post action = \"http://elin9.rochestercs.org/cgi-bin/logout.py\"> ";
+			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
+			    echo "<input type=submit name = \"logout\" value = \"Logout\"></form>";
+			}
+			?>
 		</div>
 	 </div>
         <div id="container">
             <div id="center" class="column" style="left: 80px;">Textbooks For Sale<br>
-            	<div id="postings" class="column" style="width: 700px;"><br>
+            	<div id="postform" style="width: 700px;"><br>
             	<?php
 		$cookie_name = "sessionID";
 		if(isset($_COOKIE[$cookie_name])) {
@@ -100,23 +129,6 @@ $(document).ready(function() {
 	            	echo "</form>";
 		}
 		?>
-	            	<form id = "postsomething" method = "post" action = "http://elin9.rochestercs.org/cgi-bin/postTextbook.py">
-	            	
-	            	<fieldset>
-	            	<legend>Enter in the following information about the textbook you want to sell:</legend>
-	            	Title: <input name = "title" type = "text" required/>
-	            	Author: <input name = "author" type = "text" required/><br> 
-	            	Edition: <input name = "edition" type = "text" required/>
-	            	ISBN: <input name = "isbn" type = "text" required/><br>
-	            	Condition: <input name = "condition" type = "text" required/>
-	            	Other notes: <input name = "othernotes" type = "text" required/><br>
-	            	Course Number (e.g. CSC210): <input name = "courseNum" type = "text" required/><br>
-	            	Photo (link to a photo): <input name = "photo" type = "text" required/><br>
-	            	Price (enter number): <input name = "price" type = "double" required/><br>
-	            	<input name = "submit" type = "submit" value = "Sell a Textbook!"/>
-	            	</fieldset>
-	            	
-	            	</form>
 	            </div>
             	<div id = "bookpost"></div>
             </div>
@@ -139,7 +151,11 @@ $(document).ready(function() {
 				
 			 </div>
              <div id="right" class="column">
-           	Or <a href = "http://elin9.rochestercs.org/cgi-bin/form.py">Create an Account</a>
+           	<?php
+		$cookie_name = "sessionID";
+		if(!isset($_COOKIE[$cookie_name])) {
+           		echo "Or <a href = \"http://elin9.rochestercs.org/cgi-bin/form.py\">Create an Account</a>";
+           	}?>
              </div>
     	</div>
         <div id="footer-wrapper">
@@ -148,15 +164,5 @@ $(document).ready(function() {
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 

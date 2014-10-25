@@ -10,3 +10,5 @@
 [24-Oct-2014 16:33:19 America/Denver] PHP Parse error:  syntax error, unexpected 'postsomething' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 84
 [24-Oct-2014 16:34:01 America/Denver] PHP Parse error:  syntax error, unexpected 'postsomething' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 84
 [24-Oct-2014 16:34:03 America/Denver] PHP Parse error:  syntax error, unexpected 'postsomething' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 84
+[24-Oct-2014 23:16:37 America/Denver] PHP Parse error:  syntax error, unexpected 'Or' (T_LOGICAL_OR) in /home1/elinninr/public_html/cgi-bin/index.php on line 144
+[24-Oct-2014 23:16:40 America/Denver] PHP Parse error:  syntax error, unexpected 'Or' (T_LOGICAL_OR) in /home1/elinninr/public_html/cgi-bin/index.php on line 144

@@ -16,6 +16,12 @@ def main():
     for row in c.execute('select * from users'):
     	print "%s, %s, %s, %s" % row
     	print("<br>")
+    print "<br>"
+    
+    #for row in c.execute('select * from posts'):
+    #	print row
+    #	print("<br>")
+    
     conn.close()
     print('<br>Return to <a href="http://elin9.rochestercs.org/">home</a>.')
     print("</body></html>")
