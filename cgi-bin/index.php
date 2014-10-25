@@ -3,8 +3,8 @@
 <head>
 <title>Home</title>
 <link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
-<script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
-<script src="http://elin9.rochestercs.org/menu.js"></script>
+<script src="http://elin9.rochestercs.org/experimenting/jquery-1.11.0.js"></script>
+<script src="http://elin9.rochestercs.org/experimenting/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
@@ -13,8 +13,9 @@
 $(document).ready(function() {
   console.log("Loaded!");
   
-  if ($.cookie("name") != undefined) {
-       $("#right").append("hello " + $.cookie("name") + "!<br>");
+  if ($.cookie("sessionID") != undefined) {
+	$("#right").append("You are logged in.<br>");
+       //$("#right").append("hello " + $.cookie("name") + "!<br>");
   }
           
   $('#postsomething').ajaxForm(function() { 
@@ -65,13 +66,15 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          if ($.cookie("name") === undefined){
-             $("#right").append(data + "<br>");
-          } else{
-             console.log("logged in!");
-             $("#right").append("hello " + data + "!<br>");
-             window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
-          }
+          $("#right").append("You are now logged in.<br>");
+          window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
+          //if ($.cookie("sessionID") === undefined){
+          //   $("#right").append(data + "<br>");
+          //} else{
+          //   console.log("logged in!");
+          //   $("#right").append("hello " + data + "!<br>");
+          //   window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
+          //}
         },
       }
     );
@@ -134,7 +137,7 @@ $(document).ready(function() {
             </div>
             <div id="left" class="column">
             	<label for= "class" accesskey="c">Class</label>
-					<select id="json-one">
+				<select id="json-one">
 					<br><pre><option selected value="base">Please Select a school</option></pre>
 					<option value="Art">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
@@ -164,5 +167,3 @@ $(document).ready(function() {
   
 </body>
 </html>
-
-

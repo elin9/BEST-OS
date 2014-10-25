@@ -5,7 +5,7 @@ $(document).ready(function(){
 			
 				var $dropdown = $(this);
 			
-				$.getJSON("data.json", function(data) {
+				$.getJSON("http://elin9.rochestercs.org/cgi-bin/data.json", function(data) {
 				
 					var key = $dropdown.val();
 					var vals = [];
