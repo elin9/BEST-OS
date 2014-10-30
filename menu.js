@@ -1,12 +1,12 @@
 $(document).ready(function(){
-	console.log("ready!");
+	console.log("menu ready!");
 		
 		$("#json-one").change(function() {
 			
 				var $dropdown = $(this);
-			
-				$.getJSON("data.json", function(data) {
-				
+					
+				$.getJSON("http://elin9.rochestercs.org/data.json", function(data) {
+					console.log("json loaded");
 					var key = $dropdown.val();
 					var vals = [];
 										

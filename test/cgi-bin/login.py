@@ -31,7 +31,7 @@ def main():
 			print 
 	        	print "<html><head><title>Login</title></head>"
 	        	print "<body>"
-	        	print 'An error occurred. Try deleting your stored cookies for this site, then <a href ="http://test.elin9.rochestercs.org/cgi-bin/login.py">try again</a>.<br><br>'
+	        	print 'An error occurred. Try deleting your stored cookies for this site, then <a href ="http://elin9.rochestercs.org/cgi-bin/login.py">try again</a>.<br><br>'
 	        	print "</body></html>"
 		
 	if len(all_results) > 0:
@@ -42,13 +42,14 @@ def main():
 	        print "<h1>Welcome back, " + savedName + "!</h1>"
 	        print "<h2> I already have your cookie. </h2>"
 		print "<h2> Last login time: " + aCookie['current_time'].value + "</h2><br>"
+		print '<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/index.php">here</a> to homepage.</h2>'
 		print '<form method = post action = "logout.py">'
 		print '<input type = hidden name = "sid" value = ' + str(savedSID) + '>'
 		print '<input type=submit name = "logout" value = "Logout">' #logout button here
 		print "</form>"
 	        
-	else:
-		if cookieIsWorking:  #if user is just logging in
+	else:	#if user is just logging in
+		if cookieIsWorking:  
 			
 			formName = form.getvalue("username")
 			formPass = form.getvalue("password")
@@ -72,7 +73,7 @@ def main():
 					
 					</form>
 					<br>
-					Return to <a href="http://test.elin9.rochestercs.org">home</a>.
+					Return to <a href="http://elin9.rochestercs.org">home</a>.
 					</body>
 					</html>
 				"""
@@ -92,9 +93,11 @@ def main():
 					        aCookie['sessionID'] = sessionID
 					        aCookie['current_time'] = t
 					        expires = datetime.datetime.now() + datetime.timedelta(days=7) #cookie expires in 7 days
+					        #aCookie['name']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
 					        aCookie['sessionID']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
 					        aCookie['current_time']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
-
+					        
+					        
 					        print aCookie
 					        print 
 					        print "<html><head><title>Login</title></head>"
@@ -103,6 +106,7 @@ def main():
 						print "<h2>Login time: " + aCookie['current_time'].value + "</h2>"
 						print "<h2>SessionID: " + sessionID + "</h2>"
 						print "<h2>Cookie Expiration: " + str(expires) + "</h2>"
+						print '<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/index.php">here</a> to homepage.</h2>'
 						print '<form method = post action = "logout.py">'
 						print '<input type = hidden name = "sid" value = ' + str(sessionID) + '>'
 						print '<input type=submit name = "logout" value = "Logout">' #logout button here
@@ -110,14 +114,14 @@ def main():
 					else:  #if incorrect password
 						print
 						print "<html><head><title>Login</title></head><body>"
-						print '<h1>Incorrect Password! <a href="http://test.elin9.rochestercs.org/cgi-bin/login.py">Try again.</a></h1>'
+						print '<h1>Incorrect Password! <a href="http://elin9.rochestercs.org/cgi-bin/login.py">Try again.</a></h1>'
 				else:  #if username entered is not in database
 				        print 
 				        print "<html><head><title>Login</title></head>"
 				        print "<body>"
 				        print "<h1>Sorry, you are not registered.</h1>"
 				        print formName
-				        print '<h2>Go <a href="http://test.elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account.</h2>'
+				        print '<h2>Go <a href="http://elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account.</h2>'
 			print("</body></html>")
 	
 def sendCookie():  #not used

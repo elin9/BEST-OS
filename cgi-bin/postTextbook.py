@@ -40,6 +40,9 @@ def main():
 			price=?',
 		    	(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price))
 	conn.commit()"""
+	c.execute('insert into bookposts values(?,?,?,?,?,?,?,?,?,?)',(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price))
+	conn.commit()
+	conn.close()
 	
 	print "Content-type: text/plain"
 	print
@@ -54,5 +57,5 @@ def main():
 	print courseNum
 	print photo
 	print price
-	
+
 main()

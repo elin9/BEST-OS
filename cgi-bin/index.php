@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>Home</title>
 <link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
-<script src="http://elin9.rochestercs.org/experimenting/jquery-1.11.0.js"></script>
-<script src="http://elin9.rochestercs.org/experimenting/menu.js"></script>
+<script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
+<script src="http://elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
@@ -12,6 +13,7 @@
 
 $(document).ready(function() {
   console.log("Loaded!");
+  $("#bookpost").load("printTextbook.py");
   
   if ($.cookie("sessionID") != undefined) {
 	$("#right").append("You are logged in.<br>");
@@ -82,6 +84,19 @@ $(document).ready(function() {
 
 });
 
+function load()
+{
+
+  $.ajax({
+  type:"POST",
+  url: "http://elin9.rochestercs.org/cgi-bin/search.php",
+  data: {    courseNum: $("#json-two").val()    }
+  }).done(function(msg){
+   $("#center #searchpost").append("tryit "+msg);
+  });
+
+ }
+ 
 </script>
 </head>
 <body>
@@ -133,7 +148,8 @@ $(document).ready(function() {
 		}
 		?>
 	            </div>
-            	<div id = "bookpost"></div>
+            	<div id = "bookpost" style="width: 700px;"></div>
+            	<div id = "searchpost" style="width: 700px;"></div>
             </div>
             <div id="left" class="column">
             	<label for= "class" accesskey="c">Class</label>
@@ -147,10 +163,12 @@ $(document).ready(function() {
 				</select>
 	
 				<br/>
-	
-				<select id="json-two">
+				<form method="post" action="cgi-bin/search.php">
+				<select name="courseNum" id="json-two" >
 					<option>Please choose from above</option>
 				</select>
+				<input type="button" value="Search" onClick="load()"></input>
+				</form>
 				
 			 </div>
              <div id="right" class="column">

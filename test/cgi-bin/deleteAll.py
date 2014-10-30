@@ -12,7 +12,7 @@ def main():
     conn.commit()
     conn.close()
     print("Deleted all users.<br>")
-    print('Return to <a href="http://test.elin9.rochestercs.org/">home</a>.')
+    print('Return to <a href="http://elin9.rochestercs.org/">home</a>.')
     print("</body></html>")
 
 main()

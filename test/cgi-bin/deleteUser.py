@@ -53,9 +53,9 @@ def deleteForm():
 
 def redirectHead():
     print("""<meta charset="UTF-8">
-        <meta http-equiv="refresh" content="1;url=http://test.elin9.rochestercs.org/">
+        <meta http-equiv="refresh" content="1;url=http://elin9.rochestercs.org/">
         <script type="text/javascript">
-            window.location.href = "http://test.elin9.rochestercs.org/"
+            window.location.href = "http://elin9.rochestercs.org/"
         </script>""")
 
 def redirectBody():

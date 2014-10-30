@@ -31,7 +31,7 @@ def main():
     	print("Your username: " + str(usern) + "<br>")
     	print("Your password: " + str(form.getvalue("password")) + "<br>")
     	print("Your email: " + str(email) + "<br>")
-    print('Return to <a href="http://test.elin9.rochestercs.org">home</a>.')
+    print('Return to <a href="http://elin9.rochestercs.org">home</a>.')
     print("</body></html>")
     conn.close()
 
