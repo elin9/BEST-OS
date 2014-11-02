@@ -15,6 +15,18 @@ $(document).ready(function() {
   console.log("Loaded!");
   $("#bookpost").load("printTextbook.py");
   
+  $('#json-one').change(function(){
+	console.log("the user has selected a school");
+	$('#json-two').attr('size', 20);
+	$('#json-two').css("width", "254px");
+
+  });
+  
+  $('#postABook').click(function(){
+		$('#postform').toggle();
+	
+	});
+  
   if ($.cookie("sessionID") != undefined) {
 	$("#right").append("You are logged in.<br>");
        //$("#right").append("hello " + $.cookie("name") + "!<br>");
@@ -41,7 +53,7 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          $("#bookpost").append("Title: " + title + "<br>" + 
+          $("#bookpost").prepend("Title: " + title + "<br>" + 
           			"Author: " + author + "<br>" +
           			"Edition: " + edition + "<br>" +
           			"ISBN: " + isbn + "<br>" +
@@ -102,7 +114,7 @@ function load()
 <body>
 	<div id="header">
 		<div id ="banner">
-			<img src = "http://elin9.rochestercs.org/img/banner.png">
+			<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
@@ -124,11 +136,12 @@ function load()
 	 </div>
         <div id="container">
             <div id="center" class="column" style="left: 80px;">Textbooks For Sale<br>
-            	<div id="postform" style="width: 700px;"><br>
+            	<input type="button" value="SELL A TEXTBOOK" id="postABook">
+            	<div id="postform" style="width: 700px; display: none;"><br>
             	<?php
 		$cookie_name = "sessionID";
 		if(isset($_COOKIE[$cookie_name])) {
-		    	echo "<form id = \"postsomething\" method = post action = \"postTextbook.py\">";
+		    	echo "<form id = \"postsomething\" method = post>";
 	            	
 	            	echo "<fieldset>";
 	            	echo "<legend>Enter in the following information about the textbook you want to sell:</legend>";
@@ -137,14 +150,14 @@ function load()
 	            	echo "Edition: <input name = \"edition\" type = text required/>";
 	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
 	            	echo "Condition: <input name = \"condition\" type = text required/>";
-	            	echo "Other notes: <input name = \"othernotes\" type = text required/><br>";
+	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
 	            	echo "Course Number (e.g. CSC210): <input name = \"courseNum\" type = text required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
-	            	echo "Price (enter number): <input name = \"price\" type = double required/><br>";
+	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";
 	            	echo "</fieldset>";
 	            	
-	            	echo "</form>";
+	            	echo "</form><br><br>";
 		}
 		?>
 	            </div>

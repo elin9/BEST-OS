@@ -32,7 +32,7 @@ def logout(conn, sID):
 	
 def deleteCookie( ):
 	aCookie = Cookie.SimpleCookie(cookie_string)
-	#aCookie['name']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
+	aCookie['name']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
 	aCookie['current_time']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
 	aCookie['sessionID']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
 	print aCookie

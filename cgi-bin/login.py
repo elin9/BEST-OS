@@ -31,7 +31,7 @@ def main():
 			print 
 	        	print "<html><head><title>Login</title></head>"
 	        	print "<body>"
-	        	print 'An error occurred. Try deleting your stored cookies for this site, then <a href ="http://elin9.rochestercs.org/cgi-bin/login.py">try again</a>.<br><br>'
+	        	print 'An error occurred. Try deleting your stored cookies for this site, then <a href ="http://elin9.rochestercs.org/cgi-bin/login2.py">try again</a>.<br><br>'
 	        	print "</body></html>"
 		
 	if len(all_results) > 0:

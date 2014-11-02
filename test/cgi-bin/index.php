@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>Home</title>
 <link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
-<script src="http://elin9.rochestercs.org/experimenting/jquery-1.11.0.js"></script>
-<script src="http://elin9.rochestercs.org/experimenting/menu.js"></script>
+<script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
+<script src="http://elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
@@ -12,8 +13,7 @@
 
 $(document).ready(function() {
   console.log("Loaded!");
-  
-  $("#bookpost").load(printTextbook.py);
+  $("#bookpost").load("printTextbook.py");
   
   if ($.cookie("sessionID") != undefined) {
 	$("#right").append("You are logged in.<br>");
@@ -34,7 +34,7 @@ $(document).ready(function() {
   
       $.ajax(
       {
-        url: "http://elin9.rochestercs.org/test/cgi-bin/postTextbook.py",
+        url: "http://test.elin9.rochestercs.org/cgi-bin/postTextbook.py",
         type: "POST",
         dataType: "text",
         data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, courseNum: courseNum, photo: photo, price: price},
@@ -61,7 +61,7 @@ $(document).ready(function() {
       var ps = $('#login').find('input[name="password"]').val();
       $.ajax(
       {
-        url: "http://elin9.rochestercs.org/test/cgi-bin/login2.py",
+        url: "http://test.elin9.rochestercs.org/cgi-bin/login2.py",
         type: "POST",
         dataType: "text",
         data: {username: un, password: ps,},
@@ -69,7 +69,7 @@ $(document).ready(function() {
         success: function(data) {
           console.dir(data);
           $("#right").append("You are now logged in.<br>");
-          window.location.replace('http://elin9.rochestercs.org/test/cgi-bin/index.php');
+          window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
           //if ($.cookie("sessionID") === undefined){
           //   $("#right").append(data + "<br>");
           //} else{
@@ -84,25 +84,38 @@ $(document).ready(function() {
 
 });
 
+function load()
+{
+
+  $.ajax({
+  type:"POST",
+  url: "http://test.elin9.rochestercs.org/cgi-bin/search.php",
+  data: {    courseNum: $("#json-two").val()    }
+  }).done(function(msg){
+   $("#center #searchpost").append("tryit "+msg);
+  });
+
+ }
+ 
 </script>
 </head>
 <body>
 	<div id="header">
 		<div id ="banner">
-			<img src = "http://elin9.rochestercs.org/img/banner.png">
+			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
 			$cookie_name = "sessionID";
 			if(!isset($_COOKIE[$cookie_name])) {
-			    echo "<form id = \"login\" method = post action = \"login2.py\">";
+			    echo "<form id = \"login\" method = post>";
 			    echo "Username:<input name=\"username\" type=text size=\"20\" required/> ";
 			    echo "Password:<input name=\"password\" type=password size=\"20\" required/>";
 			    echo "<input type = submit name = \"submit\" value = \"Login\"/></form><br>";
 			} else {
-			    echo "<form style = \"display: inline;\" method = post action = \"http://elin9.rochestercs.org/test/cgi-bin/deleteUser.py\">";
+			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
 			    echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
-			    echo "<form style = \"display: inline;\"method = post action = \"http://elin9.rochestercs.org/test/cgi-bin/logout.py\"> ";
+			    echo "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\"> ";
 			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
 			    echo "<input type=submit name = \"logout\" value = \"Logout\"></form>";
 			}
@@ -115,7 +128,7 @@ $(document).ready(function() {
             	<?php
 		$cookie_name = "sessionID";
 		if(isset($_COOKIE[$cookie_name])) {
-		    	echo "<form id = \"postsomething\" method = post action = \"postTextbook.py\">";
+		    	echo "<form id = \"postsomething\" method = post>";
 	            	
 	            	echo "<fieldset>";
 	            	echo "<legend>Enter in the following information about the textbook you want to sell:</legend>";
@@ -124,18 +137,19 @@ $(document).ready(function() {
 	            	echo "Edition: <input name = \"edition\" type = text required/>";
 	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
 	            	echo "Condition: <input name = \"condition\" type = text required/>";
-	            	echo "Other notes: <input name = \"othernotes\" type = text required/><br>";
+	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
 	            	echo "Course Number (e.g. CSC210): <input name = \"courseNum\" type = text required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
-	            	echo "Price (enter number): <input name = \"price\" type = double required/><br>";
+	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";
 	            	echo "</fieldset>";
 	            	
-	            	echo "</form>";
+	            	echo "</form><br><br>";
 		}
 		?>
 	            </div>
-            	<div id = "bookpost"></div>
+            	<div id = "bookpost" style="width: 700px;"></div>
+            	<div id = "searchpost" style="width: 700px;"></div>
             </div>
             <div id="left" class="column">
             	<label for= "class" accesskey="c">Class</label>
@@ -149,17 +163,19 @@ $(document).ready(function() {
 				</select>
 	
 				<br/>
-	
-				<select id="json-two">
+				<form method="post" action="cgi-bin/search.php">
+				<select name="courseNum" id="json-two" >
 					<option>Please choose from above</option>
 				</select>
+				<input type="button" value="Search" onClick="load()"></input>
+				</form>
 				
 			 </div>
              <div id="right" class="column">
            	<?php
 		$cookie_name = "sessionID";
 		if(!isset($_COOKIE[$cookie_name])) {
-           		echo "Or <a href = \"http://elin9.rochestercs.org/test/cgi-bin/form.py\">Create an Account</a>";
+           		echo "Or <a href = \"http://test.elin9.rochestercs.org/cgi-bin/form.py\">Create an Account</a>";
            	}?>
              </div>
     	</div>

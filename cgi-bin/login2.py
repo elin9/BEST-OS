@@ -35,6 +35,7 @@ def main():
 			aCookie['sessionID'] = sessionID
 			aCookie['current_time'] = t
 			expires = datetime.datetime.now() + datetime.timedelta(days=7) #cookie expires in 7 days
+			aCookie['name']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
 			aCookie['sessionID']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
 			aCookie['current_time']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")	        
 					        

@@ -12,3 +12,8 @@
 [24-Oct-2014 16:34:03 America/Denver] PHP Parse error:  syntax error, unexpected 'postsomething' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 84
 [24-Oct-2014 23:16:37 America/Denver] PHP Parse error:  syntax error, unexpected 'Or' (T_LOGICAL_OR) in /home1/elinninr/public_html/cgi-bin/index.php on line 144
 [24-Oct-2014 23:16:40 America/Denver] PHP Parse error:  syntax error, unexpected 'Or' (T_LOGICAL_OR) in /home1/elinninr/public_html/cgi-bin/index.php on line 144
+[29-Oct-2014 01:57:19 America/Denver] PHP Notice:  Undefined index: courseNum in /home1/elinninr/public_html/cgi-bin/search.php on line 2
+[29-Oct-2014 01:57:43 America/Denver] PHP Notice:  Undefined index: courseNum in /home1/elinninr/public_html/cgi-bin/search.php on line 2
+[30-Oct-2014 15:34:22 America/Denver] PHP Parse error:  syntax error, unexpected '0.01' (T_DNUMBER), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[30-Oct-2014 15:34:24 America/Denver] PHP Parse error:  syntax error, unexpected '0.01' (T_DNUMBER), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[30-Oct-2014 15:34:25 America/Denver] PHP Parse error:  syntax error, unexpected '0.01' (T_DNUMBER), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143

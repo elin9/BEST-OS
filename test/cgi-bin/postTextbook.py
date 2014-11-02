@@ -27,19 +27,6 @@ def main():
 	photo = form.getvalue("photo")
 	price = form.getvalue("price")
 
-	"""c.execute('UPDATE bookposts SET
-			user=?,
-			title=?,
-			author=?,
-			edition=?
-			ISBN=?,
-			condition=?,
-			otherNotes=?,
-			courseNumber=?,
-			photo=?,
-			price=?',
-		    	(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price))
-	conn.commit()"""
 	c.execute('insert into bookposts values(?,?,?,?,?,?,?,?,?,?)',(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price))
 	conn.commit()
 	conn.close()

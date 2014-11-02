@@ -12,8 +12,7 @@ def main():
     c = conn.cursor()
     for row in c.execute('select * from bookposts'):
     	print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s" % row
-    	print("<br>")
-    print "<br>"
+    	print("<br><br>")
     conn.close()
 
 main()
