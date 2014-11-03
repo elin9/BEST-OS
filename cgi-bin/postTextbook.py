@@ -9,6 +9,8 @@ import Cookie
 import json
 cgitb.enable()
 
+t = str(datetime.datetime.now())
+
 form = cgi.FieldStorage()
 cookie_string = os.environ.get('HTTP_COOKIE')
 
@@ -26,8 +28,11 @@ def main():
 	courseNum = form.getvalue("courseNum")
 	photo = form.getvalue("photo")
 	price = form.getvalue("price")
+	school = form.getvalue("school")
+	course = form.getvalue("course")
+	datePosted = t 
 
-	c.execute('insert into bookposts values(?,?,?,?,?,?,?,?,?,?)',(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price))
+	c.execute('insert into bookposts values(?,?,?,?,?,?,?,?,?,?,?,?,?)',(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price, school, course, datePosted))
 	conn.commit()
 	conn.close()
 	
@@ -44,5 +49,8 @@ def main():
 	print courseNum
 	print photo
 	print price
+	print school
+	print course
+	print datePosted
 
 main()
