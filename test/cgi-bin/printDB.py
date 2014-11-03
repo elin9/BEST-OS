@@ -22,7 +22,7 @@ def main():
     conn = sqlite3.connect('BESTOS_DATABASE.db')
     c = conn.cursor()
     for row in c.execute('select * from bookposts'):
-    	print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s" % row
+    	print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s | School: %s | Course: %s | Date Posted: %s" % row
     	print("<br>")
     print "<br>"
     
@@ -31,7 +31,7 @@ def main():
     #	print("<br>")
     
     conn.close()
-    print('<br>Return to <a href="http://elin9.rochestercs.org/">home</a>.')
+    print('<br>Return to <a href="http://test.elin9.rochestercs.org/">home</a>.')
     print("</body></html>")
 
 main()

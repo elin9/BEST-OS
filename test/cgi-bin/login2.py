@@ -51,7 +51,7 @@ def main():
 		print 
 		print "<html><body>"
 		print "Sorry, you are not registered."
-		print 'Go <a href="http://elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account.'
+		print 'Go <a href="http://test.elin9.rochestercs.org/cgi-bin/form.py">here</a> to create an account.'
 	print "</body></html>"
 	
 def checkUsername(c, variable):

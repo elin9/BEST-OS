@@ -15,9 +15,9 @@ $(document).ready(function() {
   console.log("Loaded!");
   $("#bookpost").load("printTextbook.py");
   
-  if ($.cookie("sessionID") != undefined) {
+  if ($.cookie("name") != undefined) {
+	$("#right").append("Hello, " + $.cookie("name") + "!<br>");
 	$("#right").append("You are logged in.<br>");
-       //$("#right").append("hello " + $.cookie("name") + "!<br>");
   }
           
   $('#postsomething').ajaxForm(function() { 
@@ -28,6 +28,8 @@ $(document).ready(function() {
       var isbn = $('#postsomething').find('input[name="isbn"]').val();
       var condition = $('#postsomething').find('input[name="condition"]').val();
       var otherNotes = $('#postsomething').find('input[name="othernotes"]').val();
+      var school = $('#postsomething').find('input[name="school"]').val();
+      var course =$('#postsomething').find('input[name="course"]').val();
       var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
       var photo = $('#postsomething').find('input[name="photo"]').val();
       var price = $('#postsomething').find('input[name="price"]').val();
@@ -37,7 +39,7 @@ $(document).ready(function() {
         url: "http://test.elin9.rochestercs.org/cgi-bin/postTextbook.py",
         type: "POST",
         dataType: "text",
-        data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, courseNum: courseNum, photo: photo, price: price},
+        data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, school: school, course: course, courseNum: courseNum, photo: photo, price: price},
 
         success: function(data) {
           console.dir(data);
@@ -47,7 +49,8 @@ $(document).ready(function() {
           			"ISBN: " + isbn + "<br>" +
           			"Condition: " + condition + "<br>" +
           			"Other Notes: " + otherNotes + "<br>" +
-          			"For Course: " + courseNum + "<br>" +
+          			"School: " + school + "<br>" +
+          			"Course: " + course + " " + courseNum + "<br>" +
           			"Link to Photo: " + photo + "<br>" +
           			"Price: $" + price + "<br><br>");
           console.log("book posted!");
@@ -70,13 +73,13 @@ $(document).ready(function() {
           console.dir(data);
           $("#right").append("You are now logged in.<br>");
           window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
-          //if ($.cookie("sessionID") === undefined){
-          //   $("#right").append(data + "<br>");
-          //} else{
-          //   console.log("logged in!");
-          //   $("#right").append("hello " + data + "!<br>");
-          //   window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
-          //}
+          if ($.cookie("name") === undefined){
+             $("#right").append(data + "<br>");
+          } else{
+             console.log("logged in!");
+             $("#right").append("Hello, " + data + "!<br>");
+             window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
+          }
         },
       }
     );
@@ -138,7 +141,9 @@ function load()
 	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
 	            	echo "Condition: <input name = \"condition\" type = text required/>";
 	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
-	            	echo "Course Number (e.g. CSC210): <input name = \"courseNum\" type = text required/><br>";
+	            	echo "School: <input name = \"school\" type = text /><br>";
+	       		echo "Course: <input name = \"course\" type = text /><br>";
+	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = number required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
 	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";

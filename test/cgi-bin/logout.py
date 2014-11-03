@@ -20,7 +20,7 @@ def main():
 	print """
 	
 		<html><head><title>Logout</title></head><body>
-		<p>You are now logged out. Return to <a href = "http://test.elin9.rochestercs.org/">home</a>.</p>
+		<p>You are now logged out. Return to <a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php">home</a>.</p>
 		</body></html>"""
 	logout(conn,sID)
 
