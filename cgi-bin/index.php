@@ -34,6 +34,7 @@ $(document).ready(function() {
           
   $('#postsomething').ajaxForm(function() { 
   
+      var user = $.cookie("name");
       var title = $('#postsomething').find('input[name="title"]').val();
       var author = $('#postsomething').find('input[name="author"]').val();
       var edition = $('#postsomething').find('input[name="edition"]').val();
@@ -51,7 +52,7 @@ $(document).ready(function() {
         url: "http://elin9.rochestercs.org/cgi-bin/postTextbook.py",
         type: "POST",
         dataType: "text",
-        data: {title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, school: school, course: course, courseNum: courseNum, photo: photo, price: price},
+        data: {user: user, title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, school: school, course: course, courseNum: courseNum, photo: photo, price: price},
 
         success: function(data) {
           console.dir(data);
@@ -103,11 +104,13 @@ function load()
 {
 
   $.ajax({
-  type:"POST",
-  url: "http://elin9.rochestercs.org/cgi-bin/search.php",
-  data: {    courseNum: $("#json-two").val()    }
-  }).done(function(msg){
-   $("#center #searchpost").append("tryit "+msg);
+      type:"POST",
+      url: "http://elin9.rochestercs.org/cgi-bin/printTextbook.py",
+      data: {school: $("#json-one").val(), course: $("#json-two").val()},
+      success: function(data) {
+          console.dir(data);
+          $("#bookpost").replaceWith(data);
+      }
   });
 
  }
@@ -156,7 +159,7 @@ function load()
 	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
 	            	echo "School: <input name = \"school\" type = text /><br>";
 	       		echo "Course: <input name = \"course\" type = text /><br>";
-	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = text required/><br>";
+	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = number min = \"0\" required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
 	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";
@@ -166,8 +169,9 @@ function load()
 		}
 		?>
 	            </div>
-            	<div id = "bookpost" style="width: 700px;"></div>
-            	<div id = "searchpost" style="width: 700px;"></div>
+	        <div id = "searchpost" style="width: 700px;">
+            	    <div id = "bookpost" style="width: 700px;"></div>
+            	</div>
             </div>
             <div id="left" class="column">
             	<label for= "class" accesskey="c">Class</label>

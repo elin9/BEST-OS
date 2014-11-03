@@ -18,7 +18,8 @@ conn = sqlite3.connect('BESTOS_DATABASE.db')
 c = conn.cursor()
 
 def main():
-	user = "Test" #get username of the user who is logged in from the database...
+	aCookie = Cookie.SimpleCookie(cookie_string)
+	user = aCookie['name'].value
 	title = form.getvalue("title")
 	author = form.getvalue("author")
 	edition = form.getvalue("edition")

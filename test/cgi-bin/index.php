@@ -91,11 +91,13 @@ function load()
 {
 
   $.ajax({
-  type:"POST",
-  url: "http://test.elin9.rochestercs.org/cgi-bin/search.php",
-  data: {    courseNum: $("#json-two").val()    }
-  }).done(function(msg){
-   $("#center #searchpost").append("tryit "+msg);
+      type:"POST",
+      url: "http://test.elin9.rochestercs.org/cgi-bin/printTextbook.py",
+      data: {school: $("#json-one").val(), course: $("#json-two").val()},
+      success: function(data) {
+          console.dir(data);
+          $("#bookpost").replaceWith(data);
+      }
   });
 
  }
@@ -168,7 +170,7 @@ function load()
 				</select>
 	
 				<br/>
-				<form method="post" action="cgi-bin/search.php">
+				<form method="post" action="cgi-bin/printTextbook.php">
 				<select name="courseNum" id="json-two" >
 					<option>Please choose from above</option>
 				</select>
