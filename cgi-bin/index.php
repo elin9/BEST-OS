@@ -67,6 +67,7 @@ $(document).ready(function() {
           			"Link to Photo: " + photo + "<br>" +
           			"Price: $" + price + "<br><br>");
           console.log("book posted!");
+          //window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
         },
       }
     );
