@@ -17,19 +17,21 @@ $(document).ready(function() {
   
   $('#json-one').change(function(){
 	console.log("the user has selected a school");
-	$('#json-two').attr('size', 20);
-	$('#json-two').css("width", "254px");
-
+	//$('#json-two').attr('size', 20);
+	//$('#json-two').css("width", "254px");
   });
   
-  $('#postABook').click(function(){
-		$('#postform').toggle();
-	
-	});
+  $('#form-json-one').change(function(){
+	console.log("school selected in bookposts form");
+  });
   
   if ($.cookie("name") != undefined) {
 	$("#right").append("Hi, " + $.cookie("name") + "!<br>");
 	$("#right").append("You are logged in.<br>");
+	$('#postABook').css('display','block')
+				   .click(function(){
+						$('#postform').toggle();
+					});
   }
           
   $('#postsomething').ajaxForm(function() { 
@@ -41,7 +43,7 @@ $(document).ready(function() {
       var isbn = $('#postsomething').find('input[name="isbn"]').val();
       var condition = $('#postsomething').find('input[name="condition"]').val();
       var otherNotes = $('#postsomething').find('input[name="othernotes"]').val();
-      var school = $('#postsomething').find('input[name="school"]').val();
+      var school = $('#postsomething').find('select[name="school"]').val();
       var course =$('#postsomething').find('input[name="course"]').val();
       var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
       var photo = $('#postsomething').find('input[name="photo"]').val();
@@ -103,18 +105,16 @@ $(document).ready(function() {
 
 function load()
 {
-
   $.ajax({
       type:"POST",
       url: "http://elin9.rochestercs.org/cgi-bin/printTextbook.py",
       data: {school: $("#json-one").val(), course: $("#json-two").val()},
       success: function(data) {
           console.dir(data);
-          $("#bookpost").replaceWith(data);
+          $("#bookpost").html(data);
       }
   });
-
- }
+}
  
 </script>
 </head>
@@ -143,7 +143,7 @@ function load()
 	 </div>
         <div id="container">
             <div id="center" class="column" style="left: 80px;">Textbooks For Sale<br>
-            	<input type="button" value="SELL A TEXTBOOK" id="postABook">
+            	<input type="button" value="SELL A TEXTBOOK" id="postABook" style="display:none;">
             	<div id="postform" style="width: 700px; display: none;"><br>
             	<?php
 		$cookie_name = "sessionID";
@@ -158,8 +158,18 @@ function load()
 	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
 	            	echo "Condition: <input name = \"condition\" type = text required/>";
 	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
-	            	echo "School: <input name = \"school\" type = text /><br>";
-	       		echo "Course: <input name = \"course\" type = text /><br>";
+	            	echo 'School: <select name = "school" id="form-json-one">
+					<br><pre><option selected value="base">Please Select a school</option></pre>
+					<option value="ASE">Arts Sciences and Engineering</option>
+					<option value="Simon">Simon School of Business Administration</option>
+					<option value="Warner">Warner School of Education</option>
+					<option value="Eastman">Eastman School of Music</option>
+					<option value="Medicine">School of Medicine and Dentistry</option>
+				      </select><br>';
+			//echo 'Course: <select name="course" id="form-json-two" >
+			//		<option>Please choose from above</option>
+			//	      </select>';
+			echo "Course: <input name = \"course\" type = text required/><br>";
 	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = number min = \"0\" required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
 	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
@@ -178,7 +188,7 @@ function load()
             	<label for= "class" accesskey="c">Class</label>
 				<select id="json-one">
 					<br><pre><option selected value="base">Please Select a school</option></pre>
-					<option value="Art">Arts Sciences and Engineering</option>
+					<option value="ASE">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
 					<option value="Warner">Warner School of Education</option>
 					<option value="Eastman">Eastman School of Music</option>

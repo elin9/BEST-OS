@@ -15,6 +15,13 @@ $(document).ready(function() {
   console.log("Loaded!");
   $("#bookpost").load("printTextbook.py");
   
+  $('#json-one').change(function(){
+	console.log("the user has selected a school");
+	$('#json-two').attr('size', 20);
+	$('#json-two').css("width", "254px");
+
+  });
+  
   if ($.cookie("name") != undefined) {
 	$("#right").append("Hello, " + $.cookie("name") + "!<br>");
 	$("#right").append("You are logged in.<br>");
@@ -143,8 +150,14 @@ function load()
 	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
 	            	echo "Condition: <input name = \"condition\" type = text required/>";
 	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
-	            	echo "School: <input name = \"school\" type = text /><br>";
-	       		echo "Course: <input name = \"course\" type = text /><br>";
+	       		echo 'School: <select id="json-one">
+					<br><pre><option selected value="base">Please Select a school</option></pre>
+					<option value="Art">Arts Sciences and Engineering</option>
+					<option value="Simon">Simon School of Business Administration</option>
+					<option value="Warner">Warner School of Education</option>
+					<option value="Eastman">Eastman School of Music</option>
+					<option value="Medicine">School of Medicine and Dentistry</option>
+				      </select><br>';     
 	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = number required/><br>";
 	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
 	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
