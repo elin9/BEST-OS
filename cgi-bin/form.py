@@ -13,6 +13,9 @@ def main():
     email = form.getvalue("email")
     indb = checkUn(c,usern)
     emindb = checkEm(c,email)
+    password = form.getvalue("password")
+    password2 = form.getvalue("password2")
+    
     print("Content-type: text/html")
     print("")
     print("<html><head><title>create account</title>")
@@ -25,6 +28,9 @@ def main():
     elif str(emindb) != "None":
     	print("Account already exists with this email!<br>")
         formBody()
+    elif password != password2:
+    	print("The passwords you entered do not match!<br>")
+    	formBody()
     else:
     	databIn(c,usern,form.getvalue("password"),email)
     	conn.commit()
@@ -50,9 +56,10 @@ def formBody():
     print("""<form name = "frm" method = post action = "form.py">
 <fieldset>
 <legend>Create new account</legend>
-Username <input type = text id = "un" name = "username" required><br>
-Password <input type = password id = "pw" name = "password" required><br>
-Email <input type = text id = "em" name = "email" required><br>
+Username: <input type = text id = "un" name = "username" required><br>
+Password: <input type = password id = "pw" name = "password" required><br>
+Re-enter password:  <input type password id = "pw2" name = "password2" required><br>
+Email: <input type = text id = "em" name = "email" required><br>
 <br>
 <input type=submit value="Submit">
 <input type=reset value="Reset">

@@ -1,11 +1,27 @@
 #!/usr/bin/env python
-import cgi, os
-import cgitb; cgitb.enable()
 
-try: # Windows needs stdio set for binary mode.
-    import msvcrt
-    msvcrt.setmode (0, os.O_BINARY) # stdin  = 0
-    msvcrt.setmode (1, os.O_BINARY) # stdout = 1
-except ImportError:
-    pass
+import cgi
+import os
+import cgitb
+cgitb.enable()
+
+print "hello"
     
+form = cgi.FieldStorage()
+
+img = form.getvalue("file")
+txt = form.getvalue("txt")
+
+print txt
+print img
+
+#fn = os.path.basename(img.filename)
+#open('http://elin9.rochestercs.org/img/' + fn, 'wb').write(fileitem.file.read())
+#message = 'The file "' + fn + '" was uploaded successfully.' + txt
+   
+#print """\
+#Content-Type: text/html\n
+#<html><body>
+#<p>%s</p>
+#</body></html>
+#""" #% (message,)

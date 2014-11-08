@@ -19,3 +19,7 @@
 [30-Oct-2014 15:34:25 America/Denver] PHP Parse error:  syntax error, unexpected '0.01' (T_DNUMBER), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
 [07-Nov-2014 15:40:32 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home1/elinninr/public_html/cgi-bin/index.php on line 170
 [08-Nov-2014 14:16:00 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[08-Nov-2014 15:30:15 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[08-Nov-2014 15:30:15 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[08-Nov-2014 15:30:17 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[08-Nov-2014 15:30:18 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
