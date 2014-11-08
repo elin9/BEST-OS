@@ -17,17 +17,14 @@ def main():
     schoolFilter = None
     courseFilter = None
 
-    if str(school)== "None":
+    if str(school)== "None" or str(school) == "base":
     	for row in c.execute('select * from bookposts order by datePosted desc'):
-    	    print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s | School: %s | Course: %s | Date Posted: %s GMT" % row
+    	    print "Seller: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: $%s | School: %s | Course: %s | Date Posted: %s GMT" % row
     	    print("<br><br>")
     else:
-        print "Showing: " + str(schoolFilter) + " " + str(courseFilter)
-    	# for row in c.execute('select * from bookposts where school = ? and course = ?',(schoolFilter,courseFilter)):
-#     	    print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s | School: %s | Course: %s | Date Posted: %s GMT" % row
-#     	    print("<br><br>")
-    	for row in c.execute('select * from bookposts where course = ? collate nocase;',(str(course),)):
-    	    print "User: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: %s | School: %s | Course: %s | Date Posted: %s GMT" % row
+        print "Showing: " + str(school) + " " + str(course) + "<br>"
+    	for row in c.execute('select * from bookposts where school = ? and course = ? collate nocase;',(str(school),str(course))):
+    	    print "Seller: %s | Title: %s | Author: %s | Edition: %s | ISBN: %s | Condition: %s | Other Notes: %s | Course Number: %s | Photo: %s | Price: $%s | School: %s | Course: %s | Date Posted: %s GMT" % row
     	    print("<br><br>")
     conn.close()
 

@@ -45,7 +45,7 @@ $(document).ready(function(){
 				var $dropdown = $(this);
 					
 				$.getJSON("http://elin9.rochestercs.org/data.json", function(data) {
-					console.log("json loaded");
+					console.log("json loaded in formm");
 					var key = $dropdown.val();
 					var vals = [];
 										
@@ -73,6 +73,7 @@ $(document).ready(function(){
 					$jsontwo.empty();
 					$.each(vals, function(index, value) {
 						$jsontwo.append("<option>" + value + "</option>");
+						// console.log(value);
 					});
 			
 				});

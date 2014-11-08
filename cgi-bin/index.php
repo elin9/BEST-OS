@@ -41,14 +41,15 @@ $(document).ready(function() {
       var author = $('#postsomething').find('input[name="author"]').val();
       var edition = $('#postsomething').find('input[name="edition"]').val();
       var isbn = $('#postsomething').find('input[name="isbn"]').val();
-      var condition = $('#postsomething').find('input[name="condition"]').val();
+      var condition = $('#postsomething').find('select[name="condition"]').val();
       var otherNotes = $('#postsomething').find('input[name="othernotes"]').val();
       var school = $('#postsomething').find('select[name="school"]').val();
-      var course =$('#postsomething').find('input[name="course"]').val();
+      var course =$('#postsomething').find('select[name="course"]').val();
       var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
       var photo = $('#postsomething').find('input[name="photo"]').val();
       var price = $('#postsomething').find('input[name="price"]').val();
-  
+  		
+      console.log(course);
       $.ajax(
       {
         url: "http://elin9.rochestercs.org/cgi-bin/postTextbook.py",
@@ -58,16 +59,7 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          $("#bookpost").prepend("Title: " + title + "<br>" + 
-          			"Author: " + author + "<br>" +
-          			"Edition: " + edition + "<br>" +
-          			"ISBN: " + isbn + "<br>" +
-          			"Condition: " + condition + "<br>" +
-          			"Other Notes: " + otherNotes + "<br>" +
-          			"School: " + school + "<br>" +
-          			"Course: " + course + " " + courseNum + "<br>" +
-          			"Link to Photo: " + photo + "<br>" +
-          			"Price: $" + price + "<br><br>");
+          $("#bookpost").prepend("Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: " + courseNum + " | Photo: " + photo + " | Price: $" + price + " | School: " + school + " | Course: " + course + "<br><br>");
           console.log("book posted!");
           //window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
         },
@@ -152,27 +144,36 @@ function load()
 	            	
 	            	echo "<fieldset>";
 	            	echo "<legend>Enter in the following information about the textbook you want to sell:</legend>";
-	            	echo "Title: <input name = \"title\" type = text required/>";
-	            	echo "Author: <input name = \"author\" type = text required/><br>";
-	            	echo "Edition: <input name = \"edition\" type = text required/>";
-	            	echo "ISBN: <input name = \"isbn\" type = text required/><br>";
-	            	echo "Condition: <input name = \"condition\" type = text required/>";
-	            	echo "Other notes: <input name = \"othernotes\" type = text /><br>";
-	            	echo 'School: <select name = "school" id="form-json-one">
-					<br><pre><option selected value="base">Please Select a school</option></pre>
+	            	echo "<label for= \"Title\">Title:</label><input name = \"title\" class=\"try\" type = text required/>";
+	            	echo "<label for= \"Author\">Author:</label><input name = \"author\" class=\"try\" type = text required/><br>";
+	            	echo "<label for= \"Edition\">Edition:</label><input name = \"edition\" class=\"try\" type = text required/>";
+	            	echo "<label for= \"ISBN\">ISBN:</label><input name = \"isbn\" class=\"try\" type = text required/><br>";
+			echo '<label for= "Condition">Condition:</label>
+				<select name="condition" class="try" id="cond">
+					<br><pre><option selected value="base">Select a condition</option></pre>
+					<option value="Poor">Poor</option>
+					<option value="Fair">Fair</option>
+					<option value="Good">Good</option>
+					<option value="Very Good">Very Good</option>
+					<option value="Like New">Like New</option>
+					<option value="Brand New">Brand New</option>
+				</select><br>';
+	            	echo '<label for= "School">School:</label><select name = "school" class="try" id="form-json-one">
+					<br><pre><option selected value="base">Select a school</option></pre>
 					<option value="ASE">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
 					<option value="Warner">Warner School of Education</option>
 					<option value="Eastman">Eastman School of Music</option>
 					<option value="Medicine">School of Medicine and Dentistry</option>
 				      </select><br>';
-			//echo 'Course: <select name="course" id="form-json-two" >
-			//		<option>Please choose from above</option>
-			//	      </select>';
-			echo "Course: <input name = \"course\" type = text required/><br>";
-	            	echo "Course Number (e.g. 210): <input name = \"courseNum\" type = number min = \"0\" required/><br>";
-	            	echo "Photo (link to a photo): <input name = \"photo\" type = text required/><br>";
-	            	echo "Price (enter number): <input name = \"price\" type = number step = \"0.01\" min = \"0\" required/><br>";
+			        echo '<label for= "Course">Course:</label><select name="course" class="try" id="form-json-two" >
+					<option>Select a school above</option>
+				      </select><br>';
+// 			echo "Course: <input name = \"course\" type = text required/><br>";
+	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
+	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
+	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
+	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";
 	            	echo "</fieldset>";
 	            	
