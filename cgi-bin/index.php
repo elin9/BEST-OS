@@ -59,7 +59,7 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          $("#bookpost").prepend("<div class = \"post\" style = \"border: 1px solid #000000; height: 100px;\">Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: %s<img style = \"width: 50px; height: 70px; float: left;\" src = \""+photo+"\"> | Price: $" + price + " | School: " + school + " | Course: " + course + "</div><br><br>");
+          $("#bookpost").prepend("<div class = \"post\" style = \"border: 1px solid #000000; height: 100px;\">Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: " + courseNum + "<img style = \"width: 50px; height: 70px; float: left;\" src = \""+photo+"\"> | Price: $" + price + " | School: " + school + " | Course: " + course + "</div><br><br>");
           console.log("book posted!");
           //window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
         },
@@ -107,6 +107,12 @@ function load()
       }
   });
 }
+
+function submitForm()
+{
+    document.forms["bookpostform"].submit();
+    document.forms["bookpostform"].reset();
+}
  
 </script>
 </head>
@@ -140,7 +146,7 @@ function load()
             	<?php
 		$cookie_name = "sessionID";
 		if(isset($_COOKIE[$cookie_name])) {
-		    	echo "<form id = \"postsomething\" method = post>";
+		    	echo "<form id = \"postsomething\" name = \"bookpostform\" method = post >";
 	            	
 	            	echo "<fieldset>";
 	            	echo "<legend>Enter in the following information about the textbook you want to sell:</legend>";
@@ -149,8 +155,8 @@ function load()
 	            	echo "<label for= \"Edition\">Edition:</label><input name = \"edition\" class=\"try\" type = text required/>";
 	            	echo "<label for= \"ISBN\">ISBN:</label><input name = \"isbn\" class=\"try\" type = text required/><br>";
 			echo '<label for= "Condition">Condition:</label>
-				<select name="condition" class="try" id="cond">
-					<br><pre><option selected value="base">Select a condition</option></pre>
+				<select required name="condition" class="try" id="cond">
+					<br><pre><option selected value="">Select a condition</option></pre>
 					<option value="Poor">Poor</option>
 					<option value="Fair">Fair</option>
 					<option value="Good">Good</option>
@@ -158,23 +164,23 @@ function load()
 					<option value="Like New">Like New</option>
 					<option value="Brand New">Brand New</option>
 				</select><br>';
-	            	echo '<label for= "School">School:</label><select name = "school" class="try" id="form-json-one">
-					<br><pre><option selected value="base">Select a school</option></pre>
+	            	echo '<label for= "School">School:</label><select required name = "school" class="try" id="form-json-one">
+					<br><pre><option selected value="">Select a school</option></pre>
 					<option value="ASE">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
 					<option value="Warner">Warner School of Education</option>
 					<option value="Eastman">Eastman School of Music</option>
 					<option value="Medicine">School of Medicine and Dentistry</option>
 				      </select><br>';
-			        echo '<label for= "Course">Course:</label><select name="course" class="try" id="form-json-two" >
+			echo '<label for= "Course">Course:</label><select required name="course" class="try" id="form-json-two" >
 					<option>Select a school above</option>
 				      </select><br>';
-// 			echo "Course: <input name = \"course\" type = text required/><br>";
 	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
 	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
-	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\"/>";
+	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\" />";
+	            	//echo "<input name=\"submit\" type=\"button\" value = \"Sell a Textbook!\" onClick=\"submitForm();\" />";
 	            	echo "</fieldset>";
 	            	
 	            	echo "</form><br><br>";

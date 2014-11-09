@@ -23,3 +23,4 @@
 [08-Nov-2014 15:30:15 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
 [08-Nov-2014 15:30:17 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
 [08-Nov-2014 15:30:18 America/Denver] PHP Parse error:  syntax error, unexpected 'this' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 143
+[08-Nov-2014 17:24:04 America/Denver] PHP Parse error:  syntax error, unexpected 'clearform' (T_STRING), expecting ',' or ';' in /home1/elinninr/public_html/cgi-bin/index.php on line 183
