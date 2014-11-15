@@ -18,6 +18,7 @@ def main():
     aCookie = Cookie.SimpleCookie(cookie_string)
     user = aCookie['name'].value
 
+    print "hello"
     for row in c.execute('select * from bookposts where user = ? order by datePosted desc;',(user,)):	
 	print '<div class = "post" style = "border: 1px solid #000000; height: 200px;">'
 	print '<p class="leftcontent" style="float:left; width:70px; padding-left:0.3em;">'
