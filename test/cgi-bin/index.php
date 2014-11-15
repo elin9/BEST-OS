@@ -3,9 +3,9 @@
 <html>
 <head>
 <title>Home</title>
-<link rel = "stylesheet" type = "text/css" href="http://test.elin9.rochestercs.org/style.css">
+<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
 <script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
-<script src="http://elin9.rochestercs.org/menu.js"></script>
+<script src="http://test.elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
@@ -33,12 +33,6 @@ $(document).ready(function() {
 						$('#postform').toggle();
 					});
   }
-  
-    $('#pic').change(function(){
-    $('#previewPic').toggle();
-    $('#preview').replaceWith('<br>'+'<br>'+'<div id="preview">'+'</div>');
-  	readURL(this);
-  });
           
   $('#postsomething').ajaxForm(function() { 
   
@@ -52,7 +46,7 @@ $(document).ready(function() {
       var school = $('#postsomething').find('select[name="school"]').val();
       var course =$('#postsomething').find('select[name="course"]').val();
       var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
-      var photo = $('#previewPic').attr('src');
+      var photo = $('#postsomething').find('input[name="photo"]').val();
       var price = $('#postsomething').find('input[name="price"]').val();
   		
       console.log(course);
@@ -65,9 +59,10 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          $("#bookpost").prepend("<div class = \"post\" style = \"border: 1px solid #000000; height: 100px;\">Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: " + courseNum + "<img style = \"width: 50px; height: 70px; float: left;\" src = \""+photo+"\"> | Price: $" + price + " | School: " + school + " | Course: " + course + "</div><br><br>");
+          $("#bookpost").load("printTextbook.py");
+          //$("#bookpost").prepend("<div class = \"post\" style = \"border: 1px solid #000000; height: 100px;\">Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: " + courseNum + "<img style = \"width: 50px; height: 70px; float: left;\" src = \""+photo+"\"> | Price: $" + price + " | School: " + school + " | Course: " + course + "</div><br><br>");
           console.log("book posted!");
-          //window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
+          //window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
         },
       }
     );
@@ -114,17 +109,6 @@ function load()
   });
 }
 
-function readURL(input){
-	if(input.files && input.files[0]){
-		var reader = new FileReader();
-		reader.onload = function (e){
-			$('#previewPic').attr('src', e.target.result);
-			// console.log($('#previewPic').attr('src'));
-		}	
-		reader.readAsDataURL(input.files[0]);
-	} //if the file is uploaded
-}
-
 function submitForm()
 {
     document.forms["bookpostform"].submit();
@@ -136,25 +120,22 @@ function submitForm()
 <body>
 	<div id="header">
 		<div id ="banner">
-			<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a>
+			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
 			$cookie_name = "sessionID";
 			if(!isset($_COOKIE[$cookie_name])) {
 			    echo "<form id = \"login\" method = post action = \"login2.py\">";
-			    echo "Username:<input name=\"username\" type=text size=\"15\" style=\"outline:1px outset;\" required/> ";
-			    echo "Password:<input name=\"password\" type=password size=\"15\" style=\"outline:1px outset;\" required/>";
+			    echo "Username:<input name=\"username\" type=text size=\"20\" required/> ";
+			    echo "Password:<input name=\"password\" type=password size=\"20\" required/>";
 			    echo "<input type = submit name = \"submit\" value = \"Login\"/></form><br>";
 			} else {
-				echo '<div id="logined">';
 			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
-			    echo "<input type=submit name = \"delete\" value = \"Delete your account\" style=\"background: transparent; border: none; outline: none;\"></form> ";
+			    echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
 			    echo "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\"> ";
 			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
-// 			    echo '|';
-			    echo "<input type=submit name = \"logout\" value = \"Logout\" style=\"background: transparent; border: none; outline: none;\"></form>";
-			    echo "</div>";
+			    echo "<input type=submit name = \"logout\" value = \"Logout\"></form>";
 			}
 			?>
 		</div>
@@ -196,10 +177,7 @@ function submitForm()
 					<option>Select a school above</option>
 				      </select><br>';
 	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
-// 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
-	            	echo 'Photo (link to a photo): <input type="file" id="pic" accept="image/*" required /><br>';
-	            	echo '<img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px;"/>';
-	            	echo '<div id="preview"></div>';
+	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
 	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\" />";
@@ -217,7 +195,7 @@ function submitForm()
             <div id="left" class="column">
             	<label for= "class" accesskey="c">Class</label>
 				<select id="json-one">
-					<br><pre><option selected value="base">Please Select a school</option></pre>
+					<br><pre><option selected value="">Please Select a school</option></pre>
 					<option value="ASE">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
 					<option value="Warner">Warner School of Education</option>
@@ -226,8 +204,8 @@ function submitForm()
 				</select>
 	
 				<br/>
-				<form method="post" action="cgi-bin/search.php">
-				<select name="courseNum" id="json-two" >
+				<form method="post" >
+				<select id="json-two" name="courseNum">
 					<option>Please choose from above</option>
 				</select>
 				<input type="button" value="Search" onClick="load()"></input>

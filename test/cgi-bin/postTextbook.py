@@ -18,7 +18,8 @@ conn = sqlite3.connect('BESTOS_DATABASE.db')
 c = conn.cursor()
 
 def main():
-	user = "Test" #get username of the user who is logged in from the database...
+	aCookie = Cookie.SimpleCookie(cookie_string)
+	user = aCookie['name'].value
 	title = form.getvalue("title")
 	author = form.getvalue("author")
 	edition = form.getvalue("edition")
@@ -30,7 +31,7 @@ def main():
 	price = form.getvalue("price")
 	school = form.getvalue("school")
 	course = form.getvalue("course")
-	datePosted = t
+	datePosted = t 
 
 	c.execute('insert into bookposts values(?,?,?,?,?,?,?,?,?,?,?,?,?)',(user, title, author, edition, isbn, condition, otherNotes, courseNum, photo, price, school, course, datePosted))
 	conn.commit()
