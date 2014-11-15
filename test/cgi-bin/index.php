@@ -25,6 +25,20 @@ $(document).ready(function() {
 	console.log("school selected in bookposts form");
   });
   
+  //----------------------------
+  $('#pic').change(function(){
+    $('#previewPic').toggle();
+    $('#preview').replaceWith('<br>'+'<br>'+'<div id="preview">'+'</div>');
+  	readURL(this); //preview the pic and get the url
+  });
+  
+  $('#upload').click(function(){
+//   	console.log("happy upload");
+  	var url=$('#previewPic').attr('src');
+	console.log(url);
+  });
+//----------------------------
+  
   if ($.cookie("name") != undefined) {
 	$("#right").append("Hi, " + $.cookie("name") + "!<br>");
 	$("#right").append("You are logged in.<br>");
@@ -33,7 +47,7 @@ $(document).ready(function() {
 						$('#postform').toggle();
 					});
   }
-          
+        
   $('#postsomething').ajaxForm(function() { 
   
       var user = $.cookie("name");
@@ -115,12 +129,26 @@ function submitForm()
     document.forms["bookpostform"].reset();
 }
  
+//----------------------------
+function readURL(input){
+	if(input.files && input.files[0]){
+		var reader = new FileReader();
+		reader.onload = function (e){
+			$('#previewPic').attr('src', e.target.result);
+			// console.log($('#previewPic').attr('src'));
+		};	
+		reader.readAsDataURL(input.files[0]);
+	} //if the file is uploaded
+}
+//----------------------------
+
+
 </script>
 </head>
 <body>
 	<div id="header">
-		<div id ="banner">
-			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a>
+		<div id ="banner" style = "z-index:1;">
+			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
@@ -131,8 +159,10 @@ function submitForm()
 			    echo "Password:<input name=\"password\" type=password size=\"20\" required/>";
 			    echo "<input type = submit name = \"submit\" value = \"Login\"/></form><br>";
 			} else {
-			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
-			    echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
+			    //echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
+			    //echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
+			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/editSettings.py\">";
+			    echo "<input type=submit name = \"usersettings\" value = \"Account Settings\"></form> ";
 			    echo "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\"> ";
 			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
 			    echo "<input type=submit name = \"logout\" value = \"Logout\"></form>";
@@ -177,7 +207,11 @@ function submitForm()
 					<option>Select a school above</option>
 				      </select><br>';
 	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
-	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
+// 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
+	            	echo '<input type="file" id="pic" accept="image/*" required /><br>';
+	            	echo '<img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px;"/>';
+	            	echo '<button type="button" id="upload">Upload</button>';
+	            	echo '<div id="preview"></div>';
 	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\" />";

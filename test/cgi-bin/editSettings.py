@@ -38,8 +38,8 @@ def main():
 		print '</head>'
 	
 		print '<body>'
-		print '<div id="header"><div id ="banner">'
-		print '<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner.png"/></a></div>'
+		print '<div id="header"><div id ="banner" style = "z-index:1;">'
+		print '<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a></div>'
 	 	print '<div id = "loginbox">'
 		print "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">"
 		print "<input type=submit name = \"delete\" value = \"Delete your account\"></form>"
@@ -48,10 +48,11 @@ def main():
 		print "<input type=submit name = \"logout\" value = \"Logout\"></form>"
 		print "</div></div>"
 		print '<div id="container">'
-	        print '<div id="center" class="column" style="left: 80px;">Your Textbooks<br>'
-		print '<div id = "bookpost" style="width: 700px;"></div>'
+	        print '<div id="center" class="column" style="left:-60px;">'
+		print '<br><div id = "bookpost" style="width: 750px;"></div>'
 	        print '</div>'
-		print '<div id="left" class="column"></div>'
+	        print '<div id="left" class="column">Your Textbooks<br>'
+	        print '</div>'
 		print '<div id="right" class="column"></div>'
 		print '</div>'
 		print '<div id="footer-wrapper"><div id="footer"></div></div></body></html>'
