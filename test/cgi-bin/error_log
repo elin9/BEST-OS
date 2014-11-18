@@ -27,3 +27,102 @@
 [12-Nov-2014 01:07:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 155
 [12-Nov-2014 01:07:08 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 155
 [12-Nov-2014 01:07:13 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 155
+[15-Nov-2014 16:17:19 America/Denver] PHP Warning:  Unknown: failed to open stream: No such file or directory in Unknown on line 0
+[15-Nov-2014 16:36:05 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 2
+[15-Nov-2014 16:36:05 America/Denver] PHP Warning:  fopen(): Filename cannot be empty in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:36:05 America/Denver] PHP Notice:  Undefined variable: decodedData in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 16:36:05 America/Denver] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 16:36:05 America/Denver] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:36:55 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 2
+[15-Nov-2014 16:36:55 America/Denver] PHP Warning:  fopen(): Filename cannot be empty in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:36:55 America/Denver] PHP Notice:  Undefined variable: decodedData in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 16:36:55 America/Denver] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 16:36:55 America/Denver] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:42:33 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 2
+[15-Nov-2014 16:42:33 America/Denver] PHP Notice:  Use of undefined constant UPLOAD_DIR - assumed 'UPLOAD_DIR' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:43:43 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:43:43 America/Denver] PHP Warning:  file_put_contents(photos/5467e52fbd9cepng): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:44:29 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:44:29 America/Denver] PHP Warning:  file_put_contents(photos/5467e55d0c357png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:45:19 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:45:19 America/Denver] PHP Warning:  file_put_contents(photos/5467e58f96081png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:46:42 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:46:42 America/Denver] PHP Warning:  file_put_contents(photos/5467e5e25c53bpng): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[15-Nov-2014 16:48:29 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:48:29 America/Denver] PHP Warning:  file_put_contents(photos/5467e64d8791e.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:49:38 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:49:38 America/Denver] PHP Warning:  file_put_contents(photos/5467e69266430.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:50:18 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:50:18 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/photos/5467e6ba96675.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:51:30 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:51:30 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/photos/5467e702573f6.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:52:06 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:52:06 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/photos/5467e7262e569.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:52:28 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:55:24 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 16:55:24 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/photos/5467e7ecea650.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 16:56:13 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:56:13 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/photos/5467e81d0b29c.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 10
+[15-Nov-2014 16:57:20 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:57:48 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 16:57:48 America/Denver] PHP Warning:  file_put_contents(/photos/5467e87c692e5.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 10
+[15-Nov-2014 17:00:21 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:00:21 America/Denver] PHP Warning:  file_put_contents(/photos/5467e91522f0c.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 10
+[15-Nov-2014 17:00:21 America/Denver] PHP Notice:  Undefined variable: filename in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[15-Nov-2014 17:00:21 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[15-Nov-2014 17:06:10 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:06:10 America/Denver] PHP Fatal error:  Call to undefined function move_upload_file() in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 17:06:27 America/Denver] PHP Notice:  Undefined index: fd in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:06:27 America/Denver] PHP Fatal error:  Call to undefined function move_upload_file() in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 17:07:27 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:07:27 America/Denver] PHP Fatal error:  Call to undefined function move_upload_file() in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 17:08:04 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:08:04 America/Denver] PHP Fatal error:  Call to undefined function move_upload_file() in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 9
+[15-Nov-2014 17:09:03 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[15-Nov-2014 17:09:03 America/Denver] PHP Warning:  file_put_contents(/photos/5467eb1f73326.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 10
+[15-Nov-2014 17:13:01 America/Denver] PHP Warning:  mkdir(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 16
+[15-Nov-2014 17:13:01 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 17
+[15-Nov-2014 17:13:30 America/Denver] PHP Warning:  mkdir(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 17
+[15-Nov-2014 17:13:30 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 18
+[15-Nov-2014 17:13:54 America/Denver] PHP Warning:  mkdir(): Permission denied in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 17
+[15-Nov-2014 17:13:54 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 18
+[15-Nov-2014 17:15:07 America/Denver] PHP Warning:  mkdir(): Permission denied in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 18
+[15-Nov-2014 17:15:07 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 19
+[15-Nov-2014 17:15:46 America/Denver] PHP Warning:  mkdir(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 18
+[15-Nov-2014 17:15:46 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 19
+[15-Nov-2014 17:30:31 America/Denver] PHP Notice:  Undefined index: uploadedfile in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 24
+[15-Nov-2014 23:19:10 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:19:10 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpw4LTgb' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:19:46 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:19:46 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpia9yeo' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:20:11 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:20:11 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpMNQ8wl' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:33:52 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:33:52 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpr1e6WC' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:35:32 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:35:32 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpuHThyi' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:37:12 America/Denver] PHP Warning:  move_uploaded_file(photos/blob): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:37:12 America/Denver] PHP Warning:  move_uploaded_file(): Unable to move '/var/tmp/phpS6UlXJ' to 'photos/blob' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[15-Nov-2014 23:39:31 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 23:39:31 America/Denver] PHP Warning:  file_put_contents(/photos/546846a39cc54.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[15-Nov-2014 23:40:08 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 23:40:08 America/Denver] PHP Warning:  file_put_contents(/photos/546846c8abe45.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[15-Nov-2014 23:40:22 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 23:40:22 America/Denver] PHP Warning:  file_put_contents(/photos/546846d6e159c.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[15-Nov-2014 23:40:33 America/Denver] PHP Notice:  Undefined index: url in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[15-Nov-2014 23:40:33 America/Denver] PHP Warning:  file_put_contents(/photos/546846e1b9bc7.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[16-Nov-2014 00:09:40 America/Denver] PHP Warning:  file_put_contents(upload/1416121780.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 8
+[16-Nov-2014 00:10:28 America/Denver] PHP Warning:  file_put_contents(upload/1416121828.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 8
+[16-Nov-2014 00:33:50 America/Denver] PHP Parse error:  syntax error, unexpected '$arr' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 8
+[16-Nov-2014 00:40:36 America/Denver] PHP Notice:  Undefined variable: type in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[16-Nov-2014 00:41:21 America/Denver] PHP Notice:  Undefined variable: type in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 11
+[16-Nov-2014 01:11:50 America/Denver] PHP Parse error:  syntax error, unexpected '$img' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[16-Nov-2014 01:13:12 America/Denver] PHP Parse error:  syntax error, unexpected '$img' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[16-Nov-2014 01:13:39 America/Denver] PHP Parse error:  syntax error, unexpected '$img' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[16-Nov-2014 01:16:52 America/Denver] PHP Parse error:  syntax error, unexpected '(string)' (string) (T_STRING_CAST) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[16-Nov-2014 01:17:52 America/Denver] PHP Parse error:  syntax error, unexpected '$imgs' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[16-Nov-2014 01:22:04 America/Denver] PHP Parse error:  syntax error, unexpected '$imgs' (T_VARIABLE) in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[16-Nov-2014 01:23:11 America/Denver] PHP Notice:  Undefined variable: tok in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[16-Nov-2014 01:23:45 America/Denver] PHP Notice:  Undefined variable: tok in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
+[16-Nov-2014 01:25:19 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 34
+[16-Nov-2014 01:27:35 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22

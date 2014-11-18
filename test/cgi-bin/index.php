@@ -33,9 +33,23 @@ $(document).ready(function() {
   });
   
   $('#upload').click(function(){
-//   	console.log("happy upload");
-  	var url=$('#previewPic').attr('src');
-	console.log(url);
+  	console.log("happy upload");
+  	var file=$('#previewPic').attr('src');
+  	console.log(file);
+	var fd = new FormData();
+    fd.append("file",file);
+	$.ajax(
+    {
+        url: "upload.php",
+        type: "POST",
+		contentType: false,
+		processData: false,
+        data: fd,
+
+        success: function(data) {
+          console.dir("success: "+data);
+        }, 
+    });
   });
 //----------------------------
   
@@ -140,6 +154,29 @@ function readURL(input){
 		reader.readAsDataURL(input.files[0]);
 	} //if the file is uploaded
 }
+
+function dataURLtoBlob(url){
+	// var binary;
+// 	if(url.split(',')[0].indexOf('base64')>=0)
+// 		binary = atob(url.split(',')[1]);
+// 	else
+// 		binary = unescape(url.split(',')[1]);
+// 	
+// 	//separate the mime content
+// 	var mime = url.split(',')[0].split(':')[1].split(';')[0];
+// 	var array = new Uint8Array(binary.length);
+// 	for (var i =0; i<binary.length; i++){
+// 		array[i]=binary.charCodeAt(i);
+// 	}
+// 	return new Blob([array],{type:mime});
+	var binary = atob(url.split(',')[1]);
+	var buffered = new ArrayBuffer(binary.length); //for working with safari
+	var array = new Uint8Array(buffered);
+	for (var i =0; i<binary.length; i++){
+		array[i]=binary.charCodeAt(i);
+	}
+	return new Blob([buffered],{type:'image/jpeg' });
+}
 //----------------------------
 
 
@@ -208,7 +245,7 @@ function readURL(input){
 				      </select><br>';
 	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
 // 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
-	            	echo '<input type="file" id="pic" accept="image/*" required /><br>';
+	            	echo '<input type="file" id="pic" name="uploadedfile" accept="image/*" required /><br>';
 	            	echo '<img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px;"/>';
 	            	echo '<button type="button" id="upload">Upload</button>';
 	            	echo '<div id="preview"></div>';
