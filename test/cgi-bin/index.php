@@ -124,13 +124,13 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          $("#right").append("You are now logged in.<br>");
-          window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
+          //window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
           if ($.cookie("name") === undefined){
              $("#right").append(data + "<br>");
           } else{
              console.log("logged in!");
              $("#right").append("Hi, " + data + "!<br>");
+             $("#right").append("You are now logged in.<br>");
              window.location.replace('http://test.elin9.rochestercs.org/cgi-bin/index.php');
           }
         },

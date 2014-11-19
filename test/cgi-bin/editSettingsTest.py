@@ -22,6 +22,7 @@ def main():
 		print "Content-type: text/html"
 		print 
 		print "<html><head><title>Settings</title>"
+		# following code block is from jqueryui.com/tabs
 		print """<head>
 			  <meta charset="utf-8">
 			  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -56,8 +57,6 @@ def main():
 		print "<input type=submit name = \"logout\" value = \"Logout\"></form>"
 		print "</div></div>"
 		print '<div id="right" class="column"></div>'
-		
-		# following code is from jqueryui.com/tabs
 		print """<div id="tabs">
 			  <ul>
 			    <li><a href="#tabs-1">Your Textbooks</a></li>
@@ -79,27 +78,9 @@ def main():
 		print "<html><head><title>Settings</title></head><body>"
 		print 'Please return to <a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php">home</a> and login.'		
 		print "</body></html>"
-			
-def changeEmail(c, user):
-	oldEmail = form.getValue("oldEmail")
-	newEmail = form.getValue("newEmail")
-	c.execute('select email from users where username = ?',(user,))
-    	dbEmail = str("%s" % c.fetchone())
-    	c.execute('select username from users where email = ?',(newEmail,))
-    	emailInDB = str("%s" % c.fetchone())	
-	if oldEmail != dbEmail:
-		print("The current email address you entered does not exist.<br>")
-		formBody()
-	elif str(emindb) != "None":
-    		print("An account already exists with this email.<br>")
-    		formBody()
-    	else:
-		c.execute('update users set email = ? where username = ? and email = ?;', (newEmail, user, oldEmail))
-		conn.commit()
-		print("You have changed your email address to " + str(newEmail) + "<br>")
 	
 def changeEmailForm():	
-	print("""<form method = post onsubmit="changeEmail(c, user)"><fieldset><legend>Change your email address</legend>
+	print("""<form method = post action = "changeEmail.py"><fieldset><legend>Change your email address</legend>
 	    Current Email Address: <input type = text name = "oldEmail" required><br>
 	    New Email Address: <input type = text name = "newEmail" required><br>
 	    <input type=submit value="Submit">
