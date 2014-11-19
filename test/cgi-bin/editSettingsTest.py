@@ -57,26 +57,22 @@ def main():
 		print "</div></div>"
 		print '<div id="right" class="column"></div>'
 		
-		# following code block from jqueryui.com/tabs/
+		# following code is from jqueryui.com/tabs
 		print """<div id="tabs">
 			  <ul>
 			    <li><a href="#tabs-1">Your Textbooks</a></li>
 			    <li><a href="#tabs-2">Change Contact Info</a></li>
 			    <li><a href="#tabs-3">Delete Your Account</a></li>
 			  </ul>
-			  <div id="tabs-1">
-			    <p>...List user's textbooks here...</p>
-			  </div>
-			  <div id="tabs-2">
-			    <p>...Put change email address form here...</p>
-			  </div>
-			  <div id="tabs-3">
-			  	<p>...Change so that the form appears here...</p>
-				<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">
-				<input type=submit name = \"delete\" value = \"Delete your account\"></form>
-			  </div>
-			</div>"""
-		print '</body></html>'		
+			  <div id="tabs-1"></div>
+			  <div id="tabs-2"> !!Not working yet!!"""
+		changeEmailForm()
+		print "</div>"
+		print "	  <div id=\"tabs-3\">"
+		deleteAccountForm()
+		print """ </div>
+			</div>
+			</body></html>"""		
 	else:
 		print "Content-type: text/html"
 		print
@@ -84,5 +80,37 @@ def main():
 		print 'Please return to <a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php">home</a> and login.'		
 		print "</body></html>"
 			
+def changeEmail(c, user):
+	oldEmail = form.getValue("oldEmail")
+	newEmail = form.getValue("newEmail")
+	c.execute('select email from users where username = ?',(user,))
+    	dbEmail = str("%s" % c.fetchone())
+    	c.execute('select username from users where email = ?',(newEmail,))
+    	emailInDB = str("%s" % c.fetchone())	
+	if oldEmail != dbEmail:
+		print("The current email address you entered does not exist.<br>")
+		formBody()
+	elif str(emindb) != "None":
+    		print("An account already exists with this email.<br>")
+    		formBody()
+    	else:
+		c.execute('update users set email = ? where username = ? and email = ?;', (newEmail, user, oldEmail))
+		conn.commit()
+		print("You have changed your email address to " + str(newEmail) + "<br>")
+	
+def changeEmailForm():	
+	print("""<form method = post onsubmit="changeEmail(c, user)"><fieldset><legend>Change your email address</legend>
+	    Current Email Address: <input type = text name = "oldEmail" required><br>
+	    New Email Address: <input type = text name = "newEmail" required><br>
+	    <input type=submit value="Submit">
+	    </fieldset></form><br>""")
+    
+def deleteAccountForm():
+    print('<form method = post action = "deleteUsertry.py">')
+    print('<fieldset><legend>To delete your account, enter your username and password.</legend>')
+    print('Username <input type = text name = "username"><br>')
+    print('Password <input type = password name = "password"><br>')
+    print('<input type=submit value="Submit">')
+    print('<input type=reset value="Reset"></fieldset></form><br>')
 
 main()

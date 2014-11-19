@@ -49,7 +49,7 @@ def checkUn(c,variable):
     return str("%s" % c.fetchone())
     
 def checkEm(c,variable):
-    c.execute('select username from users where username = ?',(variable,))
+    c.execute('select username from users where email = ?',(variable,))
     return str("%s" % c.fetchone())
 
 def formBody():

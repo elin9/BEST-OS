@@ -21,6 +21,22 @@ $(document).ready(function() {
 	//$('#json-two').css("width", "254px");
   });
   
+  $('input[type="text"]').keyup(function(){
+  	$('input[name="reset"]').attr('disabled',false);
+  	$('input[name="reset"]').click(function(){
+		$('#form-json-two').val('Please choose from above');
+		if($('#previewPic').is( ":hidden" )){
+		}else{
+			$('#preview').replaceWith('<div id="preview">'+'</div>');
+			$('#previewPic').toggle();
+		}
+  	});
+  });
+  
+  		
+//   	
+ 
+  
   $('#form-json-one').change(function(){
 	console.log("school selected in bookposts form");
   });
@@ -180,6 +196,7 @@ function dataURLtoBlob(url){
 //----------------------------
 
 
+
 </script>
 </head>
 <body>
@@ -241,7 +258,7 @@ function dataURLtoBlob(url){
 					<option value="Medicine">School of Medicine and Dentistry</option>
 				      </select><br>';
 			echo '<label for= "Course">Course:</label><select required name="course" class="try" id="form-json-two" >
-					<option>Select a school above</option>
+					<option selected="selected">Select a school above</option>
 				      </select><br>';
 	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
 // 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
@@ -252,6 +269,7 @@ function dataURLtoBlob(url){
 	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
 	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\" />";
+	            	echo '<input name = "reset" type="reset" value="Reset" disabled="true">';
 	            	//echo "<input name=\"submit\" type=\"button\" value = \"Sell a Textbook!\" onClick=\"submitForm();\" />";
 	            	echo "</fieldset>";
 	            	
