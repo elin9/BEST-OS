@@ -38,14 +38,48 @@ def main():
 			</head>"""
 		#print "<link rel = \"stylesheet\" type = \"text/css\" href=\"http://elin9.rochestercs.org/experimenting/style.css\">"
 		
+		#print '<script type="text/javascript">'
+		#print '$(document).ready(function() {'
+		#print 'console.log("Loaded!");'
+		#print '$("#tabs-1").load("printUserPost.py");'
+		#print 'if ($.cookie("name") != undefined) {'
+		#print '$("#right").append("Hi, " + $.cookie("name") + "!<br>");'
+		#print '$("#right").append("You are logged in.<br>");}'         
+		#print '});'
+		#print '</script>'
+		
 		print '<script type="text/javascript">'
-		print '$(document).ready(function() {'
-		print 'console.log("Loaded!");'
-		print '$("#tabs-1").load("printUserPost.py");'
-		print 'if ($.cookie("name") != undefined) {'
-		print '$("#right").append("Hi, " + $.cookie("name") + "!<br>");'
-		print '$("#right").append("You are logged in.<br>");}'         
-		print '});'
+		print """
+		$(document).ready(function() {
+			var list="";
+			console.log("Loaded!");
+			if ($.cookie("name") != undefined) {
+				$("#right").append("Hi, " + $.cookie("name") + "!<br>");
+				$("#right").append("You are logged in.<br>");}
+			
+			$("#tabs-1-posts").load("printUserPost.py", function(){
+				$(this).find($('.check')).each(function(){
+					$(this).click(function(){
+						if($(this).is(':checked')){
+							list+=$(this).val()+" | ";
+						}else{
+							if (list.toLowerCase().indexOf($(this).val()+"&") >= 0){
+								list=list.replace($(this).val()+" & ", '');
+							}
+						}
+					});
+				});
+			});
+		
+			$('#dle').click(function(){
+				user = $('input[name="sid"]').val();
+				$.post('/cgi-bin/deletePost.py', {list: list, user: user}, function(data){
+					alert("You are about to delete: "+ list);
+					console.log("success "+data);
+					$("#tabs-1").load("printUserPost.py");
+				});
+ 			});
+ 		});"""
 		print '</script>'
 		
 		print '<body>'
@@ -63,10 +97,14 @@ def main():
 			    <li><a href="#tabs-2">Change Contact Info</a></li>
 			    <li><a href="#tabs-3">Delete Your Account</a></li>
 			  </ul>
-			  <div id="tabs-1"></div>
-			  <div id="tabs-2"> !!Not working yet!!"""
+			  <div id="tabs-1">
+			  	<button id="dle">Delete</button>
+	       			<input id="selectAll" type="checkbox" value="SelectAll">SelectAll
+	       			<div id="tabs-1-posts"></div>
+			  </div>
+			  <div id="tabs-2">"""
 		changeEmailForm()
-		print "</div>"
+		print " </div>"
 		print "	  <div id=\"tabs-3\">"
 		deleteAccountForm()
 		print """ </div>
@@ -80,18 +118,19 @@ def main():
 		print "</body></html>"
 	
 def changeEmailForm():	
-	print("""<form method = post action = "changeEmail.py"><fieldset><legend>Change your email address</legend>
-	    Current Email Address: <input type = text name = "oldEmail" required><br>
-	    New Email Address: <input type = text name = "newEmail" required><br>
-	    <input type=submit value="Submit">
-	    </fieldset></form><br>""")
+	print('<form method = post action = "changeEmail.py">')
+	print('<fieldset><legend>Change your email address</legend>')
+	print('Current Email Address: <input type = text name = "oldEmail" required><br>')
+	print('New Email Address: <input type = text name = "newEmail" required><br>')
+	print('<input type=submit value="Submit">')
+	print('</fieldset></form><br>')
     
 def deleteAccountForm():
-    print('<form method = post action = "deleteUsertry.py">')
-    print('<fieldset><legend>To delete your account, enter your username and password.</legend>')
-    print('Username <input type = text name = "username"><br>')
-    print('Password <input type = password name = "password"><br>')
-    print('<input type=submit value="Submit">')
-    print('<input type=reset value="Reset"></fieldset></form><br>')
+	print('<form method = post action = "deleteUsertry.py">')
+	print('<fieldset><legend>To delete your account, enter your username and password</legend>')
+	print('Username <input type = text name = "username" required><br>')
+	print('Password <input type = password name = "password" required><br>')
+	print('<input type=submit value="Submit">')
+	print('</fieldset></form><br>')
 
 main()
