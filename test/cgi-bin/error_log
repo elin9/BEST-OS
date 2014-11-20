@@ -126,3 +126,4 @@
 [16-Nov-2014 01:23:45 America/Denver] PHP Notice:  Undefined variable: tok in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 6
 [16-Nov-2014 01:25:19 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 34
 [16-Nov-2014 01:27:35 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
+[20-Nov-2014 15:08:46 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3

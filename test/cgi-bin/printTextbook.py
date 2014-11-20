@@ -25,10 +25,7 @@ def main():
 #     	    <img style = "width: 50px; height: 70px; float: left;" src = "%s"> \
 #     	    Price: $%s | School: %s | Course: %s | Date Posted: %s GMT <p></div>' % row
 #     	    print("<br><br>")
-		for row in c.execute('select * from bookposts order by datePosted desc'):	
-			username = row[0]
-			#c.execute('select email from users where username = ?;', (username,))
-    			#userEmail = str("%s" % c.fetchone())
+		for row in c.execute('select * from usersNbooks order by datePosted desc'):	
 			print '<div class = "post" style = "border: 1px solid #000000; height: 200px;">'
 			print '<p class="leftcontent" style="float:left; width:70px; padding-left:0.3em;">'
 			print '<br>Course: %s' %row[11]
@@ -44,8 +41,9 @@ def main():
 			print '<br>Other Notes: %s' %row[6]
 			print '<div class="rightcontent2" style="float:left; position:relative; right=20%; text-align:end;">'
 			print '<p id="lalala" style="font-size:30pt;">$%s</p>' %row[9]
-			print '<br> <button id="contact" >Contact %s</button>' %row[0]
-			#print '<br> Email: %s' %userEmail
+			#print '<br> <button id="contact" >Contact %s</button>' %row[0]
+			print '<br> Email %s at:' %row[0]
+			print '<br>%s'  %row[13]
 			print '</div>'
 			print '</p></div><br><br>'
     else:
@@ -60,4 +58,6 @@ def checkNone(num):
 			num="none"
 		else:
 			return num
+			
+
 main()

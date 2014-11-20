@@ -277,8 +277,8 @@ function dataURLtoBlob(url){
 		}
 		?>
 	            </div>
-	        <div id = "searchpost" style="width: 700px;">
-            	    <div id = "bookpost" style="width: 700px;"></div>
+	        <div id = "searchpost" style="width: 800px;">
+            	    <div id = "bookpost" style="width: 800px;"></div>
             	</div>
             </div>
             <div id="left" class="column">
