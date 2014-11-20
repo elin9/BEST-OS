@@ -19,15 +19,10 @@ userForm = form.getvalue("user")
 titleForm = form.getvalue("list") 
     
 def main():
-    # aCookie = Cookie.SimpleCookie(cookie_string)
-#     userCookie = aCookie['name'].value
-#     userForm = form.getvalue("user")
-#     titleForm = form.getvalue("list") 
-    titles=titleForm.split("&")
+    titles=titleForm.split(", ")
     for t in titles[:]:
     	c.execute('delete from bookposts where user = ? and title = ?', (userCookie,t,))
     	titles.remove(t)
-
    	conn.commit()
     conn.close()   
 #     	
@@ -35,7 +30,7 @@ def main():
     print
     
     print("<html><head><title>Delete Post</title></head><body>") 
-    print("it has been successfully deleted<br>")
+    print("Successfully deleted post<br>")
     print('Return to <a href="http://test.elin9.rochestercs.org/cgi-bin/editSettings.py">settings</a>.')
     print("</body></html>")
 

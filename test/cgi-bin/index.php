@@ -215,7 +215,7 @@ function dataURLtoBlob(url){
 			} else {
 			    //echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
 			    //echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
-			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/editSettings.py\">";
+			    echo "<form style = \"display: inline;\" method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/editSettingsTabs.py\">";
 			    echo "<input type=submit name = \"usersettings\" value = \"Account Settings\"></form> ";
 			    echo "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\"> ";
 			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";

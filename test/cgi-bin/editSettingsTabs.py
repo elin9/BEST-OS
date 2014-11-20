@@ -61,10 +61,10 @@ def main():
 				$(this).find($('.check')).each(function(){
 					$(this).click(function(){
 						if($(this).is(':checked')){
-							list+=$(this).val()+" | ";
+							list+=$(this).val()+", ";
 						}else{
-							if (list.toLowerCase().indexOf($(this).val()+"&") >= 0){
-								list=list.replace($(this).val()+" & ", '');
+							if (list.toLowerCase().indexOf($(this).val()+", ") >= 0){
+								list=list.replace($(this).val()+", ", '');
 							}
 						}
 					});
@@ -76,7 +76,7 @@ def main():
 				$.post('/cgi-bin/deletePost.py', {list: list, user: user}, function(data){
 					alert("You are about to delete: "+ list);
 					console.log("success "+data);
-					$("#tabs-1").load("printUserPost.py");
+					$("#tabs-1-posts").load("printUserPost.py");
 				});
  			});
  		});"""

@@ -22,7 +22,7 @@ def main():
 		print "Content-type: text/html"
 		print
 		
-		print "<html><head><title>My Sellings</title>"
+		print "<html><head><title>Settings</title>"
 		print "<link rel = \"stylesheet\" type = \"text/css\" href=\"http://elin9.rochestercs.org/experimenting/style.css\">"
 		print "<script src=\"http://elin9.rochestercs.org/jquery-1.11.0.js\"></script>"
 		print "<script src=\"http://malsup.github.com/jquery.form.js\"></script>"
@@ -40,21 +40,16 @@ def main():
 				$(this).find($('.check')).each(function(){
 					$(this).click(function(){
 						if($(this).is(':checked')){
-							list+=$(this).val()+"&";
+							list+=$(this).val()+", ";
 						}else{
-							if (list.toLowerCase().indexOf($(this).val()+"&") >= 0){
-								list=list.replace($(this).val()+"&", '');
+							if (list.toLowerCase().indexOf($(this).val()+", ") >= 0){
+								list=list.replace($(this).val()+", ", '');
 							}
 						}
-						
-						
-						
 					});
-
 				});
 			});
 		
-			
 			$('#dle').click(function(){
 				user = $('input[name="sid"]').val();
 				$.post('/cgi-bin/deletePost.py', {list: list, user: user}, function(data){
@@ -63,8 +58,6 @@ def main():
 					$("#bookpost").load("printUserPost.py");
 				});
  			});
-		
-			
  		});"""
 		print '</script>'
 		print '</head>'
