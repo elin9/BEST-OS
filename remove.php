@@ -7,15 +7,7 @@ if (file_exists($img))
 {
     unlink($img);
 }
-// See if it exists again to be sure it was removed
-if (file_exists($img))
-{
-          echo "Problem deleting " . $img;
-}
-else
-{
-        echo "Successfully deleted " . $img;
-}
+
 ?>
 
 ?>

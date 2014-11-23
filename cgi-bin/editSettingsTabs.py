@@ -28,11 +28,11 @@ def main():
 			  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 			  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 			  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-			  <script src=\"http://elin9.rochestercs.org/jquery.cookie.js\"></script>
+			  <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 			  <link rel="stylesheet" href="/resources/demos/style.css">
 			  <script>
 			  $(function() {
-			    $( "#tabs" ).tabs();
+			    $("#tabs").tabs();
 			  });
 			  </script>
 			</head>"""
@@ -112,7 +112,7 @@ def main():
 			  </ul>
 			  <div id="tabs-1">
 			  	<button id="dle">Delete</button>
-	       			<input id="selectAll" type="checkbox" value="SelectAll">SelectAll
+	       			<!--<input id="selectAll" type="checkbox" value="SelectAll">SelectAll-->
 	       			<div id="tabs-1-posts"></div>
 			  </div>
 			  <div id="tabs-2">"""

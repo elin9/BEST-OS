@@ -305,7 +305,7 @@ function dataURLtoBlob(url){
             	</div>
             </div>
             <div id="left" class="column">
-            	<label for= "class" accesskey="c">Class</label>
+            	<label for= "class" accesskey="c">Select a Course</label>
 				<select id="json-one">
 					<br><pre><option selected value="">Please Select a school</option></pre>
 					<option value="ASE">Arts Sciences and Engineering</option>

@@ -2,9 +2,13 @@
 
 import cgi
 import cgitb
-cgitb.enable()
+import os
+import Cookie
 import sqlite3
+
+cgitb.enable()
 form = cgi.FieldStorage()
+cookie_string = os.environ.get('HTTP_COOKIE')
 
 def main():
     usern = form.getvalue("username")
@@ -12,6 +16,8 @@ def main():
     answ = form.getvalue("answer")
     
     print("Content-type: text/html")
+    if cookie_string:
+	deleteCookie()
     print("")
     print("<html><head><title>Delete Account</title>")
     if form.getvalue("answer") == "No":
@@ -74,5 +80,12 @@ def delete(username):
     c.execute('delete from users where username = ?',(username,))
     conn.commit()
     conn.close()
+    
+def deleteCookie():
+  	aCookie = Cookie.SimpleCookie(cookie_string)
+	aCookie['name']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
+	aCookie['current_time']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
+	aCookie['sessionID']['expires'] = 'Thu, 01 Jan 1970 00:00:00 GMT'
+	print aCookie
 
 main()
