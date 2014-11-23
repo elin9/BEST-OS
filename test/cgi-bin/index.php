@@ -10,7 +10,7 @@
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
 
 <script type="text/javascript">
-
+var photo;
 $(document).ready(function() {
   console.log("Loaded!");
   $("#bookpost").load("printTextbook.py");
@@ -49,24 +49,29 @@ $(document).ready(function() {
   });
   
   $('#upload').click(function(){
-  	console.log("happy upload");
-  	var file=$('#previewPic').attr('src');
-  	console.log(file);
-	var fd = new FormData();
-    fd.append("file",file);
-	$.ajax(
-    {
-        url: "upload.php",
-        type: "POST",
-		contentType: false,
-		processData: false,
-        data: fd,
+  		console.log("happy upload");
+  		var file = $('#previewPic').attr('src');
+  		var title = $('#postsomething').find('input[name="title"]').val();
+  		var user = $.cookie("name");
+//   		var file =file.split('base64,')[1];
+//   		console.log(file);
+		var fd = new FormData();
+    	fd.append("file",file);
+		$.ajax(
+		{
+        	url: "http://test.elin9.rochestercs.org/upload.php",
+        	type: "POST",
+			contentType: false,
+			processData: false,
+        	data: fd,
 
-        success: function(data) {
-          console.dir("success: "+data);
-        }, 
-    });
-  });
+        	success: function(data) {
+        		console.log(data);
+				photo = 'http://test.elin9.rochestercs.org/'+data;
+        	}, 
+  		});
+	});
+
 //----------------------------
   
   if ($.cookie("name") != undefined) {
@@ -79,8 +84,8 @@ $(document).ready(function() {
   }
         
   $('#postsomething').ajaxForm(function() { 
-  
-      var user = $.cookie("name");
+  	  console.log(photo);
+	  var user = $.cookie("name");
       var title = $('#postsomething').find('input[name="title"]').val();
       var author = $('#postsomething').find('input[name="author"]').val();
       var edition = $('#postsomething').find('input[name="edition"]').val();
@@ -90,7 +95,7 @@ $(document).ready(function() {
       var school = $('#postsomething').find('select[name="school"]').val();
       var course =$('#postsomething').find('select[name="course"]').val();
       var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
-      var photo = $('#postsomething').find('input[name="photo"]').val();
+      
       var price = $('#postsomething').find('input[name="price"]').val();
   		
       console.log(course);

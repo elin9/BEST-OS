@@ -127,3 +127,85 @@
 [16-Nov-2014 01:25:19 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 34
 [16-Nov-2014 01:27:35 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
 [20-Nov-2014 15:08:46 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[20-Nov-2014 18:48:53 America/Denver] PHP Warning:  file_put_contents(uploads/1416534533.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
+[21-Nov-2014 20:43:21 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 7
+[21-Nov-2014 20:44:45 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 7
+[21-Nov-2014 20:45:14 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:45:14 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:45:14 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:45:48 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:45:48 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:45:48 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:46:49 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:46:49 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:46:49 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:47:25 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:47:25 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:47:25 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:48:02 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:48:02 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:48:02 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:51:22 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:51:22 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:51:22 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:51:22 America/Denver] PHP Warning:  file_put_contents(upload/.): failed to open stream: Is a directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 26
+[21-Nov-2014 20:53:46 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:53:46 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:53:46 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:53:46 America/Denver] PHP Warning:  file_put_contents(upload/.): failed to open stream: Is a directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 23
+[21-Nov-2014 20:55:32 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:55:32 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:55:32 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 20:55:32 America/Denver] PHP Warning:  file_put_contents(upload/.): failed to open stream: Is a directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 26
+[21-Nov-2014 20:57:01 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 20:57:01 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 20:57:01 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:12:08 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:12:08 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:12:08 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:12:37 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:12:37 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:12:37 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:13:00 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:13:00 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:13:00 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:13:36 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:13:36 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:13:36 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:14:35 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:14:35 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:14:35 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:15:15 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:15:15 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:15:15 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:15:42 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:15:42 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:15:42 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:15:55 America/Denver] PHP Notice:  Undefined index: file in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 3
+[21-Nov-2014 21:15:55 America/Denver] PHP Notice:  Undefined index: user in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 4
+[21-Nov-2014 21:15:55 America/Denver] PHP Notice:  Undefined index: title in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 5
+[21-Nov-2014 21:19:38 America/Denver] PHP Notice:  Undefined variable: temp in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
+[21-Nov-2014 21:27:29 America/Denver] PHP Warning:  reset() expects parameter 1 to be array, null given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 8
+[21-Nov-2014 21:27:29 America/Denver] PHP Notice:  Undefined variable: temp in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
+[21-Nov-2014 21:27:41 America/Denver] PHP Warning:  reset() expects parameter 1 to be array, null given in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 8
+[21-Nov-2014 21:58:40 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:06:11 America/Denver] PHP Notice:  Use of undefined constant file - assumed 'file' in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 33
+[21-Nov-2014 22:22:06 America/Denver] PHP Warning:  file_put_contents(...test/upload/1416633726.jpeg): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:22:06 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:22:24 America/Denver] PHP Warning:  file_put_contents(...test/upload/1416633744.jpeg): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:22:24 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:23:09 America/Denver] PHP Warning:  file_put_contents(...test/upload/1416633789.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:23:09 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:25:26 America/Denver] PHP Warning:  file_put_contents(../test/upload/1416633926.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:25:26 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:27:34 America/Denver] PHP Warning:  file_put_contents(.../test/upload/1416634054.jpeg): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:27:34 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:29:28 America/Denver] PHP Warning:  file_put_contents(../test/upload/1416634168.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:29:28 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:30:42 America/Denver] PHP Notice:  Undefined variable: temp in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 22
+[21-Nov-2014 22:30:42 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/upload/1416634242.): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:30:42 America/Denver] PHP Warning:  chmod(): Can not call chmod() for a non-standard stream in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:31:05 America/Denver] PHP Warning:  file_put_contents(http://test.elin9.rochestercs.org/upload/1416634265.png): failed to open stream: HTTP wrapper does not support writeable connections in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:31:05 America/Denver] PHP Warning:  chmod(): Can not call chmod() for a non-standard stream in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[21-Nov-2014 22:37:09 America/Denver] PHP Warning:  file_put_contents(test.elin9.rochestercs.org/upload/1416634629.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
+[21-Nov-2014 22:37:09 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32

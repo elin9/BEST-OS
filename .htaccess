@@ -6,3 +6,14 @@ RewriteCond %{HTTP_HOST} ^elin9\.rochestercs\.org$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.elin9\.rochestercs\.org$
 RewriteRule ^/?$ "http\:\/\/elin9\.rochestercs\.org\/cgi\-bin\/index\.php" [R=302,L]
 
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.elin9.rochestercs.org$      [NC]
+RewriteRule .*\.(tiff)$ - [F,NC]
+

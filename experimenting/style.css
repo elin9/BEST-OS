@@ -2,6 +2,10 @@ body{
    min-width: 550px;
 }
 
+div {
+    word-wrap: break-word;
+}
+
 #container {
    padding-left: 200px;
    padding-right: 150px;

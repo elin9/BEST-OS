@@ -32,7 +32,7 @@ def main():
 			print '  %s' %row[7]
 			print '<p class="photo" style="float:left; width:100px; position:relative; padding-left:0.3em;">'
 			print '<img id="try" style = "width: 120px; height: 160px; float: left; border: 1px solid #000;" src = "%s">' %row[8]
-			print '<p class="rightcontent" style="float:left; position:relative; left:10%; width:350px;">'
+			print '<p class="rightcontent" style="float:left; position:relative; left:10%; width:350px; word-wrap:break-word;">'
 			print '<br>Title: %s' %row[1]
 			print '<br>Author: %s' %row[2]
 			print '<br>Edition: %s' %row[3]

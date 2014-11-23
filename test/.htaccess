@@ -1,2 +1,15 @@
+RewriteEngine on
 # Use PHP5.4 as default
 AddHandler application/x-httpd-php54 .php
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://test.elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.elin9.rochestercs.org$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.elin9.rochestercs.org/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.test.elin9.rochestercs.org$      [NC]
+RewriteRule .*\.(tiff)$ - [F,NC]
+
