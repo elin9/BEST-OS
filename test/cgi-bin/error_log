@@ -209,3 +209,11 @@
 [21-Nov-2014 22:31:05 America/Denver] PHP Warning:  chmod(): Can not call chmod() for a non-standard stream in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
 [21-Nov-2014 22:37:09 America/Denver] PHP Warning:  file_put_contents(test.elin9.rochestercs.org/upload/1416634629.png): failed to open stream: No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 31
 [21-Nov-2014 22:37:09 America/Denver] PHP Warning:  chmod(): No such file or directory in /home1/elinninr/public_html/test/cgi-bin/upload.php on line 32
+[23-Nov-2014 12:29:37 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:37 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:40 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:40 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:42 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:42 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:51 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[23-Nov-2014 12:29:51 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78

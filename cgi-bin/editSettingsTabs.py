@@ -38,16 +38,6 @@ def main():
 			</head>"""
 		#print "<link rel = \"stylesheet\" type = \"text/css\" href=\"http://elin9.rochestercs.org/experimenting/style.css\">"
 		
-		#print '<script type="text/javascript">'
-		#print '$(document).ready(function() {'
-		#print 'console.log("Loaded!");'
-		#print '$("#tabs-1").load("printUserPost.py");'
-		#print 'if ($.cookie("name") != undefined) {'
-		#print '$("#right").append("Hi, " + $.cookie("name") + "!<br>");'
-		#print '$("#right").append("You are logged in.<br>");}'         
-		#print '});'
-		#print '</script>'
-		
 		print '<script type="text/javascript">'
 		print """
 		$(document).ready(function() {
@@ -80,14 +70,36 @@ def main():
 					$("#tabs-1-posts").load("printUserPost.py");
 				});
  			});
+ 			
+ 			$('#changeEmailForm').ajaxForm(function(){
+				var oldEm = $('#changeEmail').find('input[name="oldEmail"]').val();
+				var newEm = $('#changeEmail').find('input[name="newEmail"]').val();
+				
+				$.ajax(
+				{
+				        url: "http://elin9.rochestercs.org/cgi-bin/changeEmail.py",
+				        type: "POST",
+				        dataType: "text",
+				        data: {email: newEm,},
+				
+				        success: function(data) {
+				        	$("#tabs-2").load("changeEmail.py");
+					        console.dir(data);
+					        alert("You have changed your email to: " + newEm);
+				        },
+				}
+				);
+			});
+ 			
+ 
  		});"""
 		print '</script>'
 		
 		print '<body>'
 		print '<div id="header"><div id ="banner" style = "z-index:1;">'
-		print '<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a></div>'
+		print '<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a></div>'
 		print '<div id = "loginbox">'
-		print "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\">"
+		print "<form style = \"display: inline;\"method = post action = \"http://elin9.rochestercs.org/cgi-bin/logout.py\">"
 		print "<input type = hidden name = \"sid\" value = " + str(user) + ">"
 		print "<input type=submit name = \"logout\" value = \"Logout\"></form>"
 		print "</div></div>"
@@ -115,11 +127,11 @@ def main():
 		print "Content-type: text/html"
 		print
 		print "<html><head><title>Settings</title></head><body>"
-		print 'Please return to <a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php">home</a> and login.'		
+		print 'Please return to <a href = "http://elin9.rochestercs.org/cgi-bin/index.php">home</a> and login.'		
 		print "</body></html>"
 	
 def changeEmailForm():	
-	print('<form method = post action = "changeEmail.py">')
+	print('<form id="changeEmailForm" method = post action = "changeEmail.py">')
 	print('<fieldset><legend>Change your email address</legend>')
 	print('Current Email Address: <input type = text name = "oldEmail" required><br>')
 	print('New Email Address: <input type = text name = "newEmail" required><br>')
@@ -127,7 +139,7 @@ def changeEmailForm():
 	print('</fieldset></form><br>')
     
 def deleteAccountForm():
-	print('<form method = post action = "deleteUsertry.py">')
+	print('<form id="deleteAccountForm" method = post action = "deleteUsertry.py">')
 	print('<fieldset><legend>To delete your account, enter your username and password</legend>')
 	print('Username <input type = text name = "username" required><br>')
 	print('Password <input type = password name = "password" required><br>')

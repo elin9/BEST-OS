@@ -71,6 +71,20 @@ $(document).ready(function() {
         	}, 
   		});
 	});
+	
+	$('#remove').click(function(){
+  		console.log("happy remove "+photo);
+		$.post('http://test.elin9.rochestercs.org/remove.php',{photo: photo})
+		.done(function(data){
+			if($('#previewPic').is( ":hidden" )){
+		}else{
+			$('#preview').replaceWith('<div id="preview">'+'</div>');
+			$('#previewPic').toggle();
+			$('#pic').replaceWith($('#pic').val('').clone(true));
+		}
+		});
+
+	});
 
 //----------------------------
   
@@ -269,7 +283,7 @@ function dataURLtoBlob(url){
 // 	            	echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
 	            	echo '<input type="file" id="pic" name="uploadedfile" accept="image/*" required /><br>';
 	            	echo '<img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px;"/>';
-	            	echo '<button type="button" id="upload">Upload</button>';
+	            	echo '<button type="button" id="upload">Upload</button><button type="button" id="remove">Remove</button>';
 	            	echo '<div id="preview"></div>';
 	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
 	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";

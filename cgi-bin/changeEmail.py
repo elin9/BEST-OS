@@ -33,12 +33,12 @@ def main():
 		elif str(emailInDB) != "None":
 			print "An account already exists with this email.<br>"
 			changeEmailForm()
-			print "Return to <a href='http://test.elin9.rochestercs.org/cgi-bin/editSettingsTabs.py'>settings</a>."
+			print "Return to <a href='http://elin9.rochestercs.org/cgi-bin/editSettingsTabs.py'>settings</a>."
 		else:
 			c.execute('update users set email = ? where username = ? and email = ?;', (newEmail, user, oldEmail))
 			conn.commit()
 			print "You have successfully changed your email address to " + str(newEmail) + "<br>"
-			print "Return to <a href='http://test.elin9.rochestercs.org/cgi-bin/editSettingsTabs.py'>settings</a>."
+			print "Return to <a href='http://elin9.rochestercs.org/cgi-bin/editSettingsTabs.py'>settings</a>."
 		conn.close()
 		print "</body></html>"
 
