@@ -161,15 +161,17 @@ $(document).ready(function() {
 
 function load()
 {
-  $.ajax({
-      type:"POST",
-      url: "http://elin9.rochestercs.org/cgi-bin/printTextbook.py",
-      data: {school: $("#json-one").val(), course: $("#json-two").val()},
-      success: function(data) {
-          console.dir(data);
-          $("#bookpost").html(data);
-      }
-  });
+  var school = $("#json-one").val();
+  var course = $("#json-two").val();
+  if (!school){
+    $("#showing").html("");
+    $("div.post:contains('Course')").show();
+  }else{
+    var searchString = school + " " + course;
+    $("#showing").html("Showing textbooks for " + searchString + ":<br><br>");
+    $("div.post:not(:contains('"+searchString+"'))").hide();
+    $("div.post:contains('"+searchString+"')").show();
+  }
 }
 
 function submitForm()
@@ -301,6 +303,7 @@ function dataURLtoBlob(url){
 		?>
 	            </div>
 	        <div id = "searchpost" style="width: 800px;">
+	            <div id = "showing"></div>
             	    <div id = "bookpost" style="width: 800px;"></div>
             	</div>
             </div>

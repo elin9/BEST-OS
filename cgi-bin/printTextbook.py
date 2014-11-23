@@ -20,9 +20,10 @@ def main():
 # 	getrow(0,c)
     if str(school)== "None" or str(school) == "base":
 	for row in c.execute('select * from usersNbooks order by datePosted desc'):	
-		print '<div class = "post" style = "border: 1px solid #000000; height: 200px;">'
+		print '<div class = "post">'
+		print '<div class = "post2" style = "border: 1px solid #000000; height: 200px;">'
 		print '<p class="leftcontent" style="float:left; width:70px; padding-left:0.3em;">'
-		print '<br>Course: %s' %row[11]
+		print '<br>Course: <span style ="display:none;">%s</span> %s' %(row[10],row[11])
 		print '  %s' %row[7]
 		print '<input type = hidden value = %s>' %row[10]
 		print '<p class="photo" style="float:left; width:100px; position:relative; padding-left:0.3em;">'
@@ -40,13 +41,13 @@ def main():
 		print '<br> Email %s at:' %row[0]
 		print '<br>%s'  %row[13]
 		print '</div>'
-		print '</p></div><br><br>'
+		print '</p></div><br><br></div>'
     else:
         print "<br>Showing textbooks for " + str(school) + " " + str(course) + ":<br><br>"
     	for row in c.execute('select * from usersNbooks where school = ? and course = ? collate nocase order by datePosted desc;',(str(school),str(course))):
     	  	print '<div class = "post" style = "border: 1px solid #000000; height: 200px;">'
 		print '<p class="leftcontent" style="float:left; width:70px; padding-left:0.3em;">'
-		print '<br>Course: %s' %row[11]
+		print '<br>Course: <span style ="display:none;">%s</span> %s' %(row[10],row[11])
 		print '  %s' %row[7]
 		print '<input type = hidden value = %s>' %row[10]
 		print '<p class="photo" style="float:left; width:100px; position:relative; padding-left:0.3em;">'
