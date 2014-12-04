@@ -1,0 +1,196 @@
+body{
+   min-width: 550px;
+   height:100%;
+   font-family:sans-serif;
+   font-size:11pt;
+   background-image:url('http://theblog.qccareerschool.com/wp-content/uploads/2013/05/iStock_000000029919_2.jpg');
+/*    background-color:#000; */
+}
+
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #fff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #eee;
+}
+
+/* selected link */
+a:active {
+    color: #eee;
+}
+
+div {
+    word-wrap: break-word;
+}
+/*the bigger container*/
+#container {
+/*     background-color:#fff; */
+    width:100%;
+/*    padding-left: 200px; */
+/*    padding-right: 150px; */
+}
+
+#post {
+   padding-bottom: 5px;
+   border: 1px solid #000000;
+}
+
+#postsomething{
+    background-color:#fff;
+    background-color:rgba(255,255,255,0.7);
+    border-radius:15px;
+    padding:1em;
+}
+
+/*i delete the style in div class=post2*/
+.post2{
+    padding:0.5em;
+    display:inline-flex;
+    background-color:#fff;
+    opacity:0.85;
+    position:relative;
+    left:-10px;
+    width:90%;
+    border:none !important;
+    border-radius:15px;
+    overflow: hidden;
+}
+
+#header {
+/*       background-color:#e3435f; */
+
+/*    width: 100%; */
+      height: 240px;
+/*    clear: both; */
+/*    padding-top: 10px; */
+/*    padding-bottom: 10px; */
+}
+.rightcontent{
+    position:relative;
+    float:center;
+    top:-10px;
+    width:30% !important;
+	
+}
+
+.rightcontent2{
+     width:35%;
+     display:inline-block;
+     text-align: justify !important;
+     left:70px;
+}
+
+.try {
+    margin-bottom: 0.3em;
+    /* font: 80%/1 sans-serif; */
+}
+
+/* #container .column { */
+/*    background-color:#eee; */
+/*    position: relative; */
+/*    float: left; */
+/* } */
+
+#banner {
+    z-index: -1;
+    background-color:rgba(255,255,255,0.7);
+    border-radius:15px;
+/*     position:relative; */
+    padding-left:30%;
+    top:10%;
+    width:920px;
+/*       display:none; */
+/*    position: absolute; */
+/*    width = 700px; */
+/*    z-index: -1; */
+   
+}
+
+#loginbox {
+   width:150px;
+   float: right;
+   position:fixed;
+
+   color:#fff;
+/*    bottom:458px; */
+   top:300px;
+   right:0px;
+   border:10px s/olid rgba(192,192,192,0.3);
+   border-radius:10px;
+/*    background-color:#123456; */
+   background-color:rgba(100,100,100,0.7);
+/*     opacity:0.7; */
+   padding: 1em;
+   height:130px;
+   z-index: 10;
+}
+/* #bookpost{
+    position:relative;
+    left:-10px;
+} */
+#center{
+/*     background-color:#000; */
+/*     padding:2em; */
+    position:relative;
+    float:right;
+    width:80%;
+/*    width:100%; */
+}
+
+/*select a course change like textbooks for sale*/
+select{
+    background:transparent;
+/*     padding:10em; */
+    width:100%;
+    height:24px;
+    size:10;
+/*     padding:1em; */
+}
+
+input[type='button'],input[type='submit']{
+    border:none;
+    border-radius:3px;
+    background:linear-gradient(silver, white);
+}
+
+
+#left{
+    background-color:#fff;
+    opacity:0.85;
+    border-radius:10px;
+    padding:1.5em;
+    width:16.5%;
+    height:50%;
+    position:absolute;
+    left:30px;
+/*     left: */
+
+/*    width: 250px; */
+/*    right: 200px; */
+/*    margin-left: -100%; */
+}
+
+#right{
+      position:fixed;
+      float:right;
+      top:425px;
+      right:9px;
+      z-index:11;
+/*    width: 150px; */
+/*    margin-right: -150px; */
+}
+
+#footer-wrapper{
+/*    position:relative; */
+   z-index:1;
+   background-color:#fff;
+/*    clear: both; */
+}

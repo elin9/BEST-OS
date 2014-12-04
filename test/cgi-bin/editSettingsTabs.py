@@ -25,7 +25,7 @@ def main():
 		# following code block is from jqueryui.com/tabs
 		print """<head>
 			  <meta charset="utf-8">
-			  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+			  <link rel="stylesheet" href="http://elin9.rochestercs.org/experimenting/setting.css">
 			  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 			  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 			  <script src=\"http://elin9.rochestercs.org/jquery.cookie.js\"></script>
@@ -85,7 +85,7 @@ def main():
 		
 		print '<body>'
 		print '<div id="header"><div id ="banner" style = "z-index:1;">'
-		print '<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a></div>'
+		print '<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/bann.png"/></a></div>'
 		print '<div id = "loginbox">'
 		print "<form style = \"display: inline;\"method = post action = \"http://test.elin9.rochestercs.org/cgi-bin/logout.py\">"
 		print "<input type = hidden name = \"sid\" value = " + str(user) + ">"

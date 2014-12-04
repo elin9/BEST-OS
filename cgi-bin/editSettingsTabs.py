@@ -69,28 +69,7 @@ def main():
 					console.log("success "+data);
 					$("#tabs-1-posts").load("printUserPost.py");
 				});
- 			});
- 			
- 			$('#changeEmailForm').ajaxForm(function(){
-				var oldEm = $('#changeEmail').find('input[name="oldEmail"]').val();
-				var newEm = $('#changeEmail').find('input[name="newEmail"]').val();
-				
-				$.ajax(
-				{
-				        url: "http://elin9.rochestercs.org/cgi-bin/changeEmail.py",
-				        type: "POST",
-				        dataType: "text",
-				        data: {email: newEm,},
-				
-				        success: function(data) {
-				        	$("#tabs-2").load("changeEmail.py");
-					        console.dir(data);
-					        alert("You have changed your email to: " + newEm);
-				        },
-				}
-				);
-			});
- 			
+ 			}); 			
  
  		});"""
 		print '</script>'

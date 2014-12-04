@@ -3,8 +3,9 @@
 <html>
 <head>
 <title>Home</title>
-<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
+<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style2.css">
 <script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></scr‌ipt>
 <script src="http://test.elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
@@ -33,6 +34,33 @@ $(document).ready(function() {
   	});
   });
   
+  // $('#loginbox').mouseenter(function(){
+// 	if($('#login').length){
+// 		$(this).css({
+// 			'bottom':'380px',
+// 			'position':'fixed'
+// 
+//     	});
+// 	}
+// 	else{
+// 		$(this).css({
+// 			'bottom':'458px',
+// 			'position':'fixed'
+// 
+//     	});
+// 	}
+// 	
+//     
+//   });
+// 
+//   $('#loginbox').mouseleave(function(){
+// 	
+// 	$(this).css({
+// 		'bottom':'458px',
+// 		'position':'fixed'
+//     });
+// 
+//   });
   		
 //   	
  
@@ -219,7 +247,7 @@ function dataURLtoBlob(url){
 <body>
 	<div id="header">
 		<div id ="banner" style = "z-index:1;">
-			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a>
+			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/bann.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
