@@ -45,7 +45,8 @@ def main():
 			console.log("Loaded!");
 			if ($.cookie("name") != undefined) {
 				$("#right").append("Hi, " + $.cookie("name") + "!<br>");
-				$("#right").append("You are logged in.<br>");}
+				$("#right").append("You are logged in.<br>");
+			}
 			
 			$("#tabs-1-posts").load("printUserPost.py", function(){
 				$(this).find($('.check')).each(function(){
@@ -86,8 +87,9 @@ def main():
 		print """<div id="tabs">
 			  <ul>
 			    <li><a href="#tabs-1">Your Textbooks</a></li>
-			    <li><a href="#tabs-2">Change Contact Info</a></li>
-			    <li><a href="#tabs-3">Delete Your Account</a></li>
+			    <li><a href="#tabs-2">Change Your Email Address</a></li>
+			    <li><a href="#tabs-3">Change Your Password</a></li>
+			    <li><a href="#tabs-4">Delete Your Account</a></li>
 			  </ul>
 			  <div id="tabs-1">
 			  	<button id="dle">Delete</button>
@@ -97,7 +99,10 @@ def main():
 			  <div id="tabs-2">"""
 		changeEmailForm()
 		print " </div>"
-		print "	  <div id=\"tabs-3\">"
+		print "	<div id=\"tabs-3\">"
+		changePasswordForm()
+		print " </div>"
+		print "	<div id=\"tabs-4\">"
 		deleteAccountForm()
 		print """ </div>
 			</div>
@@ -114,6 +119,14 @@ def changeEmailForm():
 	print('<fieldset><legend>Change your email address</legend>')
 	print('Current Email Address: <input type = text name = "oldEmail" required><br>')
 	print('New Email Address: <input type = text name = "newEmail" required><br>')
+	print('<input type=submit value="Submit">')
+	print('</fieldset></form><br>')
+	
+def changePasswordForm():	
+	print('<form id="changePasswordForm" method = post action = "changePassword.py">')
+	print('<fieldset><legend>Change your password</legend>')
+	print('Current Password: <input type = password name = "oldPass" required><br>')
+	print('New Password: <input type = password name = "newPass" required><br>')
 	print('<input type=submit value="Submit">')
 	print('</fieldset></form><br>')
     

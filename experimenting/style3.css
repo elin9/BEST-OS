@@ -7,12 +7,6 @@ body{
 /*    background-color:#000; */
 }
 
-#pages{
-	position:relative;
-	left:28%;
-	padding:10px;
-}
-
 li{
     display: inline;
     list-style-type: none;
@@ -78,15 +72,6 @@ div {
     overflow: hidden;
 }
 
-.nopost{
-    color:#000;
-    font-size:20px;
-    text-align:center;
-    padding:100px;
-    border-radius:15px;
-    background-color:rgba(255,255,255,0.7);
-}
-
 #header {
 /*       background-color:#e3435f; */
 
@@ -147,6 +132,7 @@ div {
 /*    bottom:458px; */
    top:300px;
    right:0px;
+   border:10px s/olid rgba(192,192,192,0.3);
    border-radius:10px;
 /*    background-color:#123456; */
    background-color:rgba(100,100,100,0.7);
@@ -165,7 +151,7 @@ div {
 /*     padding:2em; */
     position:relative;
     float:right;
-    width:80%;
+    width:78%;
 /*    width:100%; */
 }
 
@@ -181,7 +167,6 @@ select{
 
 input[type='button'],input[type='submit']{
     border:none;
-    margin:10px 0 10px 0;
     border-radius:3px;
     background:linear-gradient(silver, white);
 }
@@ -192,7 +177,7 @@ input[type='button'],input[type='submit']{
     opacity:0.85;
     border-radius:10px;
     padding:1.5em;
-    width:16.5%;
+    width:19.5%;
     height:50%;
     position:absolute;
     left:30px;
@@ -213,25 +198,6 @@ input[type='button'],input[type='submit']{
 /*    margin-right: -150px; */
 }
 
-#previewPic{
-	box-shadow: 5px 5px 5px #888888;
-	background:rgba(255,255,255,0.7);
-	border-radius:15px;
-	width:140px !important;
-
-}
-
-
-textarea[name="othernotes"]{
-	border-radius:10px;
-	border:none;
-	background:rgba(255,255,255,0.9);
-	height:100px;
-	width:155px;
-	padding: 1em 1em 0 1em;
-	resize: none;
-}
-
 #footer-wrapper{
 /*    position:relative; */
    z-index:1;
@@ -239,9 +205,27 @@ textarea[name="othernotes"]{
 /*    clear: both; */
 }
 
-#t{
-	background: rgba(255,255,255,0.7);
-	border-radius:10px;
-	padding: 10px;
-
+#overlay {
+    position: fixed;
+	background: rgba(0,0,0,0.8);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+#show{
+z-index: 11;
+	color:#000;
+	background: #fff;
+	text-align: center;
+	padding: 25px 25px;
+	width: 250px;
+	display: none;
+	border-radius: 5px;
+	box-shadow: 0 8px 6px -6px #000;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-stransform: translate(-50%, -50%);
 }

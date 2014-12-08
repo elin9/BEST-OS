@@ -217,3 +217,24 @@
 [23-Nov-2014 12:29:42 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
 [23-Nov-2014 12:29:51 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
 [23-Nov-2014 12:29:51 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/cgi-bin/index.php on line 78
+[07-Dec-2014 14:37:37 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:37:40 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:37:48 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:38:09 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:39:03 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:39:20 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:39:20 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:41:17 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:48:54 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 324
+[07-Dec-2014 14:53:35 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 298
+[07-Dec-2014 14:54:04 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 298
+[07-Dec-2014 14:54:07 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 252
+[07-Dec-2014 14:55:03 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 323
+[07-Dec-2014 14:55:04 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 323
+[07-Dec-2014 14:55:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 323
+[07-Dec-2014 14:55:11 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 323
+[07-Dec-2014 15:05:49 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 274
+[07-Dec-2014 15:05:55 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 274
+[07-Dec-2014 15:06:23 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 283
+[07-Dec-2014 15:06:25 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 283
+[07-Dec-2014 15:06:32 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home1/elinninr/public_html/test/cgi-bin/index.php on line 283

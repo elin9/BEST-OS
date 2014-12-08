@@ -7,3 +7,54 @@
 [23-Nov-2014 12:36:20 America/Denver] PHP Fatal error:  Call to undefined function delete() in /home1/elinninr/public_html/test/remove.php on line 4
 [23-Nov-2014 12:37:45 America/Denver] PHP Warning:  unlink(): http does not allow unlinking in /home1/elinninr/public_html/test/remove.php on line 4
 [23-Nov-2014 12:38:13 America/Denver] PHP Warning:  unlink(): http does not allow unlinking in /home1/elinninr/public_html/test/remove.php on line 4
+[07-Dec-2014 19:51:20 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 2
+[07-Dec-2014 19:52:10 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 2
+[07-Dec-2014 19:52:12 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 2
+[07-Dec-2014 19:52:14 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 2
+[07-Dec-2014 19:52:44 America/Denver] PHP Warning:  SQLite3::query(): Unable to prepare statement: 1, no such table: bookposts in /home1/elinninr/public_html/test/remove.php on line 3
+[07-Dec-2014 19:52:44 America/Denver] PHP Fatal error:  Call to a member function fetchArray() on a non-object in /home1/elinninr/public_html/test/remove.php on line 6
+[07-Dec-2014 19:52:47 America/Denver] PHP Warning:  SQLite3::query(): Unable to prepare statement: 1, no such table: bookposts in /home1/elinninr/public_html/test/remove.php on line 3
+[07-Dec-2014 19:52:47 America/Denver] PHP Fatal error:  Call to a member function fetchArray() on a non-object in /home1/elinninr/public_html/test/remove.php on line 6
+[07-Dec-2014 19:53:01 America/Denver] PHP Warning:  SQLite3::query(): Unable to prepare statement: 1, no such table: bookposts in /home1/elinninr/public_html/test/remove.php on line 3
+[07-Dec-2014 19:53:01 America/Denver] PHP Fatal error:  Call to a member function fetchArray() on a non-object in /home1/elinninr/public_html/test/remove.php on line 6
+[07-Dec-2014 19:53:02 America/Denver] PHP Warning:  SQLite3::query(): Unable to prepare statement: 1, no such table: bookposts in /home1/elinninr/public_html/test/remove.php on line 3
+[07-Dec-2014 19:53:02 America/Denver] PHP Fatal error:  Call to a member function fetchArray() on a non-object in /home1/elinninr/public_html/test/remove.php on line 6
+[07-Dec-2014 19:53:03 America/Denver] PHP Warning:  SQLite3::query(): Unable to prepare statement: 1, no such table: bookposts in /home1/elinninr/public_html/test/remove.php on line 3
+[07-Dec-2014 19:53:03 America/Denver] PHP Fatal error:  Call to a member function fetchArray() on a non-object in /home1/elinninr/public_html/test/remove.php on line 6
+[07-Dec-2014 19:53:22 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:53:46 America/Denver] PHP Warning:  scandir(/upload): failed to open dir: No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:53:46 America/Denver] PHP Warning:  scandir(): (errno 2): No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:53:46 America/Denver] PHP Warning:  array_diff(): Argument #1 is not an array in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:53:46 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:53:47 America/Denver] PHP Warning:  scandir(/upload): failed to open dir: No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:53:47 America/Denver] PHP Warning:  scandir(): (errno 2): No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:53:47 America/Denver] PHP Warning:  array_diff(): Argument #1 is not an array in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:53:47 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:00 America/Denver] PHP Warning:  scandir(/upload): failed to open dir: No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:54:00 America/Denver] PHP Warning:  scandir(): (errno 2): No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:54:00 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:01 America/Denver] PHP Warning:  scandir(/upload): failed to open dir: No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:54:01 America/Denver] PHP Warning:  scandir(): (errno 2): No such file or directory in /home1/elinninr/public_html/test/remove.php on line 11
+[07-Dec-2014 19:54:01 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:29 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:43 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:54:43 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:44 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:54:44 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:45 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:54:45 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:46 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:54:46 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:54:47 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:54:47 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 18
+[07-Dec-2014 19:55:23 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home1/elinninr/public_html/test/remove.php on line 15
+[07-Dec-2014 19:55:29 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:55:29 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 21
+[07-Dec-2014 19:55:41 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:55:41 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 21
+[07-Dec-2014 19:55:50 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:55:50 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 22
+[07-Dec-2014 19:55:57 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 12
+[07-Dec-2014 19:55:57 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 24
+[07-Dec-2014 19:59:42 America/Denver] PHP Notice:  Array to string conversion in /home1/elinninr/public_html/test/remove.php on line 13
+[07-Dec-2014 19:59:42 America/Denver] PHP Notice:  Undefined index: photo in /home1/elinninr/public_html/test/remove.php on line 25
