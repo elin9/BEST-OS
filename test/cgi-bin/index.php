@@ -22,6 +22,8 @@ $(document).ready(function() {
 				
   });
   
+  
+  
   $('#json-one').change(function(){
 	console.log("the user has selected a school");
 	$('#json-two').attr('size',20)
@@ -239,6 +241,7 @@ function showpage(data){
 </head>
 <body>
 	<div id="header">
+		<?php include("http://test.elin9.rochestercs.org/remove.php"); ?>
 		<div id ="banner" style = "z-index:1;">
 			<a href = "http://test.elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/bann.png"/></a>
 		</div>
@@ -313,7 +316,7 @@ function showpage(data){
 				      </td><td><input type="number" step="1" style="width:50px;" name = "courseNum" class="try" min = "1" max="999" required/></td>
 				</tr>
 				<tr>
-					<td><label>Please upload a book cover:</label><input style="width:100px;" type="file" id="pic" name="uploadedfile" accept="image/*" required /></td>
+					<td><label>Please upload a book cover:</label><input style="width:70px;" type="file" id="pic" name="uploadedfile" accept="image/*" required /></td>
 					<td rowspan="2"><img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px; border=1px solid #aaa;"/><div id="preview"></div></td>
 					<td colspan="2" rowspan="4">
 						<table width="100%">

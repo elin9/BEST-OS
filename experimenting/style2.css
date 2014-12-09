@@ -3,8 +3,8 @@ body{
    height:100%;
    font-family:sans-serif;
    font-size:11pt;
+   overflow-x: hidden;
    background-image:url('http://theblog.qccareerschool.com/wp-content/uploads/2013/05/iStock_000000029919_2.jpg');
-/*    background-color:#000; */
 }
 
 #pages{
@@ -13,28 +13,19 @@ body{
 	padding:10px;
 }
 
-li{
-    display: inline;
-    list-style-type: none;
-    padding-right: 20px;
-}
-
 a:link {
     color: #fff;
     text-decoration: none;
 }
 
-/* visited link */
 a:visited {
     color: #fff;
 }
 
-/* mouse over link */
 a:hover {
     color: #eee;
 }
 
-/* selected link */
 a:active {
     color: #eee;
 }
@@ -44,10 +35,7 @@ div {
 }
 /*the bigger container*/
 #container {
-/*     background-color:#fff; */
     width:100%;
-/*    padding-left: 200px; */
-/*    padding-right: 150px; */
 }
 
 #post {
@@ -63,7 +51,7 @@ div {
     padding:1em;
 }
 
-/*i delete the style in div class=post2*/
+/*!important overwrite the style in div class=post2*/
 .post2{
     color:#000;
     padding:0.5em;
@@ -88,13 +76,7 @@ div {
 }
 
 #header {
-/*       background-color:#e3435f; */
-
-/*    width: 100%; */
       height: 240px;
-/*    clear: both; */
-/*    padding-top: 10px; */
-/*    padding-bottom: 10px; */
 }
 .rightcontent{
     position:relative;
@@ -113,29 +95,18 @@ div {
 
 .try {
     margin-bottom: 0.3em;
-    /* font: 80%/1 sans-serif; */
 }
 
 #container .column {
       color:#fff;
-/*    background-color:#eee; */
-/*    position: relative; */
-/*    float: left; */
 }
 
 #banner {
     z-index: -1;
     background-color:rgba(255,255,255,0.7);
     border-radius:15px;
-/*     position:relative; */
     padding-left:30%;
     top:10%;
-    width:920px;
-/*       display:none; */
-/*    position: absolute; */
-/*    width = 700px; */
-/*    z-index: -1; */
-   
 }
 
 #loginbox {
@@ -144,39 +115,27 @@ div {
    position:fixed;
 
    color:#fff;
-/*    bottom:458px; */
    top:300px;
    right:0px;
    border-radius:10px;
-/*    background-color:#123456; */
    background-color:rgba(100,100,100,0.7);
-/*     opacity:0.7; */
    padding: 1em;
    height:130px;
    z-index: 10;
 }
-/* #bookpost{
-    position:relative;
-    left:-10px;
-} */
+
 #center{
-/*     color:#fff; */
-/*     background-color:#000; */
-/*     padding:2em; */
     position:relative;
     float:right;
     width:80%;
-/*    width:100%; */
 }
 
 /*select a course change like textbooks for sale*/
 select{
     background:transparent;
-/*     padding:10em; */
     width:100%;
     height:24px;
     size:10;
-/*     padding:1em; */
 }
 
 input[type='button'],input[type='submit']{
@@ -196,11 +155,6 @@ input[type='button'],input[type='submit']{
     height:50%;
     position:absolute;
     left:30px;
-/*     left: */
-
-/*    width: 250px; */
-/*    right: 200px; */
-/*    margin-left: -100%; */
 }
 
 #right{
@@ -209,8 +163,6 @@ input[type='button'],input[type='submit']{
       top:425px;
       right:9px;
       z-index:11;
-/*    width: 150px; */
-/*    margin-right: -150px; */
 }
 
 #previewPic{
@@ -224,7 +176,7 @@ input[type='button'],input[type='submit']{
 
 textarea[name="othernotes"]{
 	border-radius:10px;
-	border:none;
+	border:1px solid #aaa;
 	background:rgba(255,255,255,0.9);
 	height:100px;
 	width:155px;
@@ -233,10 +185,8 @@ textarea[name="othernotes"]{
 }
 
 #footer-wrapper{
-/*    position:relative; */
    z-index:1;
    background-color:#fff;
-/*    clear: both; */
 }
 
 #t{

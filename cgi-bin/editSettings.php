@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+	<link rel="stylesheet" href="http://elin9.rochestercs.org/experimenting/setting.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
+<!-- 	<link rel="stylesheet" href="/resources/demos/style.css"> -->
+<script type="text/javascript">
+	$(function(){
+		$('body').load('editSettingsTabs.py',function(){
+			$(this).find($('#dle')).click(function(){
+				$(this).append('<div id="del"><?php include("http://elin9.rochestercs.org/remove.php"); ?></div>');
+			});
+		});
+	});
+	
+</script>
+</head>
+<body>
+</body>
+</html>

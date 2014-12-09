@@ -21,8 +21,6 @@ titleForm = form.getvalue("list")
 def main():
     titles=titleForm.split(", ")
     for t in titles[:]:
-    	c.execute('select photo from bookposts where user = ? and title = ?', (userCookie,t,))
-    	p = str("%s" %c.fetchone())
     	c.execute('delete from bookposts where user = ? and title = ?', (userCookie,t,))
     	titles.remove(t)
    	conn.commit()
@@ -32,7 +30,6 @@ def main():
     print
     
     print("<html><head><title>Delete Post</title></head><body>") 
-#     print "this is %s" % p
     print("Successfully deleted post<br>")
     print('Return to <a href="http://test.elin9.rochestercs.org/cgi-bin/editSettings.py">settings</a>.')
     print("</body></html>")

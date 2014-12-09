@@ -5,19 +5,30 @@
 	$i=0;
 	while ($res = $results->fetchArray(SQLITE3_ASSOC)){
 		if(!isset($res['photo'])) continue;
-		$row[$i]['photo'] = $res['photo'];
+		$row[$i] = $res['photo'];
 		$i++;
 	}
+	
+	
 	$file=scandir('upload/');
 	$file = array_map(function($val) { return 'http://test.elin9.rochestercs.org/upload/'.$val; }, $file);
 	$result = array_diff($file, $row);
-	print_r($row);
-	print "<br>";
-	print "<br>";
-	print_r($file);
-	print "<br>";
-	print "<br>";
-	print_r($result);
+	
+	foreach ($result as $img) {
+		$img = str_replace('http://test.elin9.rochestercs.org/','',$img);
+		$img = getcwd() . "/" . $img;
+		print $img . "<br>";
+		unlink($img);
+		if (file_exists($img))
+		{
+    		unlink($img);
+    		print $img . "<br>";
+		}	
+// 		 
+	}
+	
+// 	print getcwd() . "\n";
+	
 ?>
 <!-- 
 

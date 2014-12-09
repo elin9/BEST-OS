@@ -3,88 +3,73 @@
 <html>
 <head>
 <title>Home</title>
-<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style.css">
+<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style2.css">
+<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/simplePagination.css">
 <script src="http://elin9.rochestercs.org/jquery-1.11.0.js"></script>
 <script src="http://elin9.rochestercs.org/menu.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
+<script src="http://elin9.rochestercs.org/jpaginate.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-var photo;
+var photolink="";
 $(document).ready(function() {
   console.log("Loaded!");
-  $("#bookpost").load("printTextbook.py");
+  $('#bookpost').load('printTextbook.py',function(){
+    			showpage($(this).find($('.post')));
+				
+  });
   
   $('#json-one').change(function(){
 	console.log("the user has selected a school");
-	//$('#json-two').attr('size', 20);
-	//$('#json-two').css("width", "254px");
+	$('#json-two').attr('size',20)
+	.css({"height": "200px", "margin":"0.5em 0 0.5em 0"});
   });
   
-  $('input[type="text"]').keyup(function(){
-  	$('input[name="reset"]').attr('disabled',false);
-  	$('input[name="reset"]').click(function(){
+  $('input[type="text"],textarea').keyup(function(){
+  	$('input[name="clear"]').attr('disabled',false);
+  	$('input[name="clear"]').click(function(){
 		$('#form-json-two').val('Please choose from above');
-		if($('#previewPic').is( ":hidden" )){
-		}else{
-			$('#preview').replaceWith('<div id="preview">'+'</div>');
-			$('#previewPic').toggle();
-		}
+		$('#previewPic').hide();
   	});
   });
-  
-  		
-//   	
- 
   
   $('#form-json-one').change(function(){
 	console.log("school selected in bookposts form");
   });
   
   //----------------------------
-  $('#pic').change(function(){
+  $('#previewPic[src="#"]').hide();
+  $('#previewPic:not([src="#"])').show();
+ $('#pic').change(function(){
     $('#previewPic').toggle();
-    $('#preview').replaceWith('<br>'+'<br>'+'<div id="preview">'+'</div>');
   	readURL(this); //preview the pic and get the url
   });
   
-  $('#upload').click(function(){
-  		console.log("happy upload");
-  		var file = $('#previewPic').attr('src');
-  		var title = $('#postsomething').find('input[name="title"]').val();
-  		var user = $.cookie("name");
-//   		var file =file.split('base64,')[1];
-//   		console.log(file);
-		var fd = new FormData();
-    	fd.append("file",file);
-		$.ajax(
-		{
-        	url: "http://elin9.rochestercs.org/upload.php",
-        	type: "POST",
-			contentType: false,
-			processData: false,
-        	data: fd,
+//   $('input[value="Sell a Textbook!"]').click(function(){
+//   		console.log("happy upload");
+//   		var file = $('#previewPic').attr('src');
+//   		var title = $('#postsomething').find('input[name="title"]').val();
+//   		var user = $.cookie("name");
+// 		var fd = new FormData();
+//     	fd.append("file",file);
+// 		$.ajax(
+// 		{
+//         	url: "http://elin9.rochestercs.org/upload.php",
+//         	type: "POST",
+// 			contentType: false,
+// 			processData: false,
+//         	data: fd,
+// 
+//         	success: function(data) {
+//         		console.log(data);
+// 				photolink = 'http://elin9.rochestercs.org/'+data;
+// 				console.log('uploaded'+photolink);
+//         	}, 
+//   		});
+// 	});
+// 	
 
-        	success: function(data) {
-        		console.log(data);
-				photo = 'http://elin9.rochestercs.org/'+data;
-        	}, 
-  		});
-	});
-
-	$('#remove').click(function(){
-  		console.log("happy remove "+photo);
-		$.post('http://elin9.rochestercs.org/remove.php',{photo: photo})
-		.done(function(data){
-			if($('#previewPic').is( ":hidden" )){
-		}else{
-			$('#preview').replaceWith('<div id="preview">'+'</div>');
-			$('#previewPic').toggle();
-			$('#pic').replaceWith($('#pic').val('').clone(true));
-		}
-		});
-
-	});
 
 //----------------------------
   
@@ -98,30 +83,31 @@ $(document).ready(function() {
   }
         
   $('#postsomething').ajaxForm(function() { 
-  	  console.log(photo);
-	  var user = $.cookie("name");
-      var title = $('#postsomething').find('input[name="title"]').val();
-      var author = $('#postsomething').find('input[name="author"]').val();
-      var edition = $('#postsomething').find('input[name="edition"]').val();
-      var isbn = $('#postsomething').find('input[name="isbn"]').val();
-      var condition = $('#postsomething').find('select[name="condition"]').val();
-      var otherNotes = $('#postsomething').find('input[name="othernotes"]').val();
-      var school = $('#postsomething').find('select[name="school"]').val();
-      var course =$('#postsomething').find('select[name="course"]').val();
-      var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
-      
-      var price = $('#postsomething').find('input[name="price"]').val();
-  		
-      console.log(course);
-      $.ajax(
+  	upload().done(function(r){
+  		var photoo = 'http://elin9.rochestercs.org/'+r;
+  		console.log('works'+photoo);
+  		var user = $.cookie("name");
+        var title = $('#postsomething').find('input[name="title"]').val();
+        var author = $('#postsomething').find('input[name="author"]').val();
+        var edition = $('#postsomething').find('input[name="edition"]').val();
+        var isbn = $('#postsomething').find('input[name="isbn"]').val();
+        var condition = $('#postsomething').find('select[name="condition"]').val();
+        var otherNotes = $('#postsomething').find('textarea[name="othernotes"]').val();
+        var school = $('#postsomething').find('select[name="school"]').val();
+        var course =$('#postsomething').find('select[name="course"]').val();
+        var courseNum = $('#postsomething').find('input[name="courseNum"]').val();
+        var photoo = photolink;
+        var price = $('#postsomething').find('input[name="price"]').val();
+	 	$.ajax(
       {
         url: "http://elin9.rochestercs.org/cgi-bin/postTextbook.py",
         type: "POST",
         dataType: "text",
-        data: {user: user, title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, school: school, course: course, courseNum: courseNum, photo: photo, price: price},
+        data: {user: user, title: title, author: author, edition: edition, isbn: isbn, condition: condition, othernotes: otherNotes, school: school, course: course, courseNum: courseNum, photo: photoo, price: price},
 
         success: function(data) {
           console.dir(data);
+          submitForm();
           $("#bookpost").load("printTextbook.py");
           //$("#bookpost").prepend("<div class = \"post\" style = \"border: 1px solid #000000; height: 100px;\">Seller: " + user+ " | Title: " + title + " | Author: " + author + " | Edition: " + edition + " | ISBN: " + isbn + " | Condition: " + condition + " | Other Notes: " + otherNotes + " | Course Number: " + courseNum + "<img style = \"width: 50px; height: 70px; float: left;\" src = \""+photo+"\"> | Price: $" + price + " | School: " + school + " | Course: " + course + "</div><br><br>");
           console.log("book posted!");
@@ -129,6 +115,11 @@ $(document).ready(function() {
         },
       }
     );
+    
+  	})
+  	.fail(function(){
+  		console.log('failed');
+  	});
   });
 
   $('#login').ajaxForm(function() { 
@@ -163,27 +154,70 @@ function load()
 {
   var school = $("#json-one").val();
   var course = $("#json-two").val();
-  if (!school){
-    $("#showing").html("");
-    $("div.post:contains('Course')").show();
+  var searchString = school + " " + course;
+  $("#showing").html("Showing textbooks for " + searchString + ":<br><br>");
+  $("div.post:not(:contains('"+searchString+"'))").hide();
+  $("div.post:contains('"+searchString+"')").show("fast");
+  showpage($("div.post:contains('"+searchString+"')"));
+  if(!$("div.post:contains('"+searchString+"')").show().length){
+  	$('#showing').addClass('nopost').html(
+  	"<table>Sorry there were no matching posts<br>"+
+  	"Click to go back and see all posts<br>"+
+  	"<button id='goback'>All Posts</button></table>");
+  	$('#goback').click(function(){
+  		$('#showing').hide();
+  		showpage($('#bookpost .post'));
+  		$('#bookpost .post').show("fast");
+  	});
   }else{
-    var searchString = school + " " + course;
-    $("#showing").html("Showing textbooks for " + searchString + ":<br><br>");
-    $("div.post:not(:contains('"+searchString+"'))").hide();
-    $("div.post:contains('"+searchString+"')").show();
+  		$('#showing').removeClass('nopost').show();
   }
+				
+}
+
+function upload(){
+	console.log("happy upload");
+  	var file = $('#previewPic').attr('src');
+  	var title = $('#postsomething').find('input[name="title"]').val();
+  	var user = $.cookie("name");
+	var fd = new FormData();
+    fd.append("file",file);
+	return $.ajax(
+	{
+        url: "http://elin9.rochestercs.org/upload.php",
+    	type: "POST",
+		contentType: false,
+		processData: false,
+       	data: fd,
+<!-- 
+
+     	success: function(data) {
+        		console.log(data);
+				photolink = 'http://elin9.rochestercs.org/'+data;
+				
+        }, 
+ -->
+  	});
 }
 
 function submitForm()
 {
-    document.forms["bookpostform"].submit();
-    document.forms["bookpostform"].reset();
+   	var r = confirm("successfully posted! Do you want to sell another textbook?");
+	if (r == true) {
+   		document.forms["bookpostform"].reset();
+   		$('#previewPic').hide();
+	} else {
+		document.forms["bookpostform"].reset();
+   		$('#previewPic').hide();
+		$('#postform').hide();
+	}
 }
 
 function posted() 
 {
 	return confirm('You have posted a textbook!');
 }
+ 
  
 //----------------------------
 function readURL(input){
@@ -197,30 +231,29 @@ function readURL(input){
 	} //if the file is uploaded
 }
 
-function dataURLtoBlob(url){
-	// var binary;
-// 	if(url.split(',')[0].indexOf('base64')>=0)
-// 		binary = atob(url.split(',')[1]);
-// 	else
-// 		binary = unescape(url.split(',')[1]);
-// 	
-// 	//separate the mime content
-// 	var mime = url.split(',')[0].split(':')[1].split(';')[0];
-// 	var array = new Uint8Array(binary.length);
-// 	for (var i =0; i<binary.length; i++){
-// 		array[i]=binary.charCodeAt(i);
-// 	}
-// 	return new Blob([array],{type:mime});
-	var binary = atob(url.split(',')[1]);
-	var buffered = new ArrayBuffer(binary.length); //for working with safari
-	var array = new Uint8Array(buffered);
-	for (var i =0; i<binary.length; i++){
-		array[i]=binary.charCodeAt(i);
-	}
-	return new Blob([buffered],{type:'image/jpeg' });
-}
 //----------------------------
+function showpage(data){
+	var showperpage = 5; 
+    			var post = data;
+				var totalContent = post.length;
 
+				data.slice(showperpage).hide();
+				
+				$('#pages').pagination({
+        			items: totalContent,
+        			itemsOnPage: showperpage,
+        			cssStyle: 'light-theme',
+        			onPageClick: function(pageNumber) { // this is where the magic happens
+            			// someone changed page, lets hide/show trs appropriately
+//             			alert('click page '+pageNumber+' and showing '+showperpage+' contents');
+            			var showFrom = showperpage * (pageNumber - 1);
+            			var showTo = showFrom + showperpage;
+// 						alert('show from content '+showFrom+' to content '+showTo);
+           				post.hide()
+           				    .slice(showFrom, showTo).show();
+        			}
+    			});
+}
 
 
 </script>
@@ -228,7 +261,7 @@ function dataURLtoBlob(url){
 <body>
 	<div id="header">
 		<div id ="banner" style = "z-index:1;">
-			<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a>
+			<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/bann.png"/></a>
 		</div>
 	 	<div id = "loginbox">
 		 	<?php
@@ -241,7 +274,7 @@ function dataURLtoBlob(url){
 			} else {
 			    //echo "<form style = \"display: inline;\" method = post action = \"http://elin9.rochestercs.org/cgi-bin/deleteUser.py\">";
 			    //echo "<input type=submit name = \"delete\" value = \"Delete your account\"></form> ";
-			    echo "<form style = \"display: inline;\" method = post action = \"http://elin9.rochestercs.org/cgi-bin/editSettingsTabs.py\">";
+			    echo "<form style = \"display: inline;\" method = post action = \"http://elin9.rochestercs.org/cgi-bin/editSettings.php\">";
 			    echo "<input type=submit name = \"usersettings\" value = \"Account Settings\"></form> ";
 			    echo "<form style = \"display: inline;\"method = post action = \"http://elin9.rochestercs.org/cgi-bin/logout.py\"> ";
 			    echo "<input type = hidden name = \"sid\" value = " . $_COOKIE[$cookie_name] . ">";
@@ -255,54 +288,74 @@ function dataURLtoBlob(url){
             	<input type="button" value="SELL A TEXTBOOK" id="postABook" style="display:none;">
             	<div id="postform" style="width: 700px; display: none;"><br>
             	<?php
-		$cookie_name = "sessionID";
-		if(isset($_COOKIE[$cookie_name])) {
-		    	echo "<form id = \"postsomething\" name = \"bookpostform\" method = post >";
-	            	
-	            	echo "<fieldset>";
-	            	echo "<legend>Enter in the following information about the textbook you want to sell:</legend>";
-	            	echo "<label for= \"Title\">Title:</label><input name = \"title\" class=\"try\" type = text required/>";
-	            	echo "<label for= \"Author\">Author:</label><input name = \"author\" class=\"try\" type = text required/><br>";
-	            	echo "<label for= \"Edition\">Edition:</label><input name = \"edition\" class=\"try\" type = text required/>";
-	            	echo "<label for= \"ISBN\">ISBN:</label><input name = \"isbn\" class=\"try\" type = text required/><br>";
-			echo '<label for= "Condition">Condition:</label>
-				<select required name="condition" class="try" id="cond">
-					<br><pre><option selected value="">Select a condition</option></pre>
+					$cookie_name = "sessionID";
+					if(isset($_COOKIE[$cookie_name])) {
+				?>
+   				<form id = "postsomething" name = "bookpostform" method = post >
+                <h5 align='center'>Enter in the following information about the textbook you want to sell:</h5>
+				<table id="t" width="90%" align="center">
+				<tr>
+					<td width="5%"><label for= "Title">Title:</label></td><td width="25%"><input name = "title" class="try" type = text required/></td> 
+					<td width="5%"><label for= "Author">Author:</label></td><td  width="15%"><input name = "author" class="try" type = text required/></td>
+				</tr>
+				<tr>
+					<td><label for= "Edition">Edition:</label></td><td><input name = "edition" class="try" type = text required/></td>
+					<td><label for= "ISBN">ISBN:</label></td><td><input name = "isbn" class="try" type = text required/></td>
+				</tr>
+				<tr>
+					<td><label for= "Condition">Condition:</label></td>
+					<td><select style="width:140px;" required name="condition" class="try" id="cond">
+					<pre><option selected value="">Select a condition</option></pre>
 					<option value="Poor">Poor</option>
 					<option value="Fair">Fair</option>
 					<option value="Good">Good</option>
 					<option value="Very Good">Very Good</option>
 					<option value="Like New">Like New</option>
 					<option value="Brand New">Brand New</option>
-				</select><br>';
-	            	echo '<label for= "School">School:</label><select required name = "school" class="try" id="form-json-one">
-					<br><pre><option selected value="">Select a school</option></pre>
+				</select></td>
+                    <td><label for= "Course">Course:</label></td>
+					<td width="5%"><select required name="course" class="try" id="form-json-two" >
+					<option selected="selected">Select a school above</option>
+				      </select></td>
+				</tr>
+				<tr>
+					<td><label for= "School">School:</label></td>
+					<td><select style="width:140px;" required name = "school" class="try" id="form-json-one">
+					<pre><option selected value="">Select a school</option></pre>
 					<option value="ASE">Arts Sciences and Engineering</option>
 					<option value="Simon">Simon School of Business Administration</option>
 					<option value="Warner">Warner School of Education</option>
 					<option value="Eastman">Eastman School of Music</option>
 					<option value="Medicine">School of Medicine and Dentistry</option>
-				      </select><br>';
-			echo '<label for= "Course">Course:</label><select required name="course" class="try" id="form-json-two" >
-					<option selected="selected">Select a school above</option>
-				      </select><br>';
-	            	echo "<label for= \"CourseNumber\">Course Number (e.g. 210):</label><input name = \"courseNum\" class=\"try\" type = number min = \"0\" required/><br>";
- 	            	//echo "<label for= \"Photo\">Photo (link to a photo):</label><input name = \"photo\" class=\"try\" type = text required/><br>";
-	            	echo '<input type="file" id="pic" name="uploadedfile" accept="image/*" required /><br>';
-	            	echo '<img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px;"/>';
-	            	echo '<button type="button" id="upload">Upload</button><button type="button" id="remove">Remove</button>  <font size="2" color="gray">*Click the Upload button after choosing a file!*</font>';
-	            	echo '<div id="preview"></div>';
-	            	echo "<label for= \"Price\">Price (enter number):</label><input name = \"price\" class=\"try\" type = number step = \"0.01\" min = \"0\" required/><br>";
-	            	echo "<label for= \"Other notes\">Other notes:</label><input name = \"othernotes\" class=\"try\" type = text /><br>";
-	            	echo "<input name = \"submit\" type = submit value = \"Sell a Textbook!\" onclick=\"return posted();\" />";
-	            	//echo "<input name=\"submit\" type=button value = \"Sell a Textbook!\" onclick=\"submitForm();\" />";
-	            	echo '<input name = "reset" type="reset" value="Reset" disabled="true">';
-	            	echo "</fieldset>";       	
-	            	echo "</form><br><br>";
-		}
-		?>
+				    </select></td>
+				
+				    <td  width="18%"><label for= "CourseNumber">
+				      Course Number (e.g. 210):</label>
+				      </td><td><input type="number" step="1" style="width:50px;" name = "courseNum" class="try" min = "1" max="999" required/></td>
+				</tr>
+				<tr>
+					<td><label>Please upload a book cover:</label><input style="width:80px;" type="file" id="pic" name="uploadedfile" accept="image/*" required /></td>
+					<td rowspan="2"><img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px; border=1px solid #aaa;"/><div id="preview"></div></td>
+					<td colspan="2" rowspan="4">
+						<table width="100%">
+							<tr><td width="45%"><label for= "Price">Price:</label></td>
+						    <td><input name = "price" class="try" type = number step = "0.01" min = "0" required/></td></tr>
+							<tr><td><label for= "Other notes">Other notes:</label></td></tr>
+							<tr><td colspan="3"><textarea name = "othernotes" class="try" type = text ></textarea></td></tr>         
+							<tr><td><center><input name = "submit" type = submit onSubmit="return posted();"value = "Sell a Textbook!" /><input name = "clear" type="reset" value="Reset" disabled="true"></center></td></tr>
+						</table>
+					</td>
+				</tr>
+				
+				</table>
+           		</form><br><br>
+           	
+			<?php
+			}
+			?>
 	            </div>
 	        <div id = "searchpost" style="width: 800px;">
+	        	 <div id='pages'></div>
 	            <div id = "showing"></div>
             	    <div id = "bookpost" style="width: 800px;"></div>
             	</div>

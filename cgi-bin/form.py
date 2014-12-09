@@ -18,7 +18,65 @@ def main():
     
     print("Content-type: text/html")
     print("")
-    print("<html><head><title>create account</title>")
+    print("<html><head><title>Create account</title>")
+    print '<style>'
+    print """body {
+    background:url('http://cdn1.bigcommerce.com/n-ww20x/1n77e/products/1905/images/2848/library_bookcase_wallpaper__69506.1407915090.1280.1280.jpg?c=2'); 
+    height:70%;
+    text-align:center;
+    color:#fff;
+    font-size:16px;
+    font-family:sans-serif;
+}
+h2{
+    text-align:center;
+}
+a{
+	color:#fff;
+	font-weight:bold;
+	font-size:20px;
+	text-decoration:none;
+}
+form{
+    color:#fff;
+}
+table{
+    background:rgba(255,255,255,0.7);
+    margin-left:auto;
+    margin-right:auto;
+    border:none;
+    border-radius:10px;
+    padding:3em;
+    width:100px;
+    height:100px;
+    color:#000;
+}
+td{
+    width:10%;
+    
+}
+
+input[type="submit"],input[type="reset"]{
+    border:none;
+    width:80px;
+    height:30px;
+	margin-top:30px;
+    background:rgba(255,255,255,0.9);
+    border-radius:10px;
+    font-size:10pt;
+}
+
+input[type="reset"]{
+    margin-left:58px;
+}
+
+input[type="text"],input[type="password"]{
+    font-size:18pt;
+    width:150px;
+    height:50px;
+}"""
+    print '</style>'
+#     print('<link rel = "stylesheet" type = "text/css" href="http://elin9.rochestercs.org/experimenting/style2.css">')
     print("</head><body>")    
     if usern == None:
     	formBody()
@@ -34,10 +92,9 @@ def main():
     else:
     	databIn(c,usern,form.getvalue("password"),email)
     	conn.commit()
-    	print("Your username: " + str(usern) + "<br>")
-    	print("Your password: " + str(form.getvalue("password")) + "<br>")
-    	print("Your email: " + str(email) + "<br>")
-    print('Return to <a href="http://elin9.rochestercs.org">home</a>.')
+    	print("Hooray! Congrats, " + str(usern) + ", you have created an account with the following email address:<br>")
+    	print(str(email) + "<br><br>")
+    print('Return <a href="http://elin9.rochestercs.org/cgi-bin/index.php">home</a> to login.')
     print("</body></html>")
     conn.close()
 
@@ -54,16 +111,17 @@ def checkEm(c,variable):
 
 def formBody():
     print("""<form name = "frm" method = post action = "form.py">
-<fieldset>
-<legend>Create new account</legend>
-Username: <input type = text id = "un" name = "username" required><br>
-Password: <input type = password id = "pw" name = "password" required><br>
-Re-enter password:  <input type password id = "pw2" name = "password2" required><br>
-Email: <input type = text id = "em" name = "email" required><br>
-<br>
-<input type=submit value="Submit">
-<input type=reset value="Reset">
-</fieldset>
+<table>
+<h2>Create a new account</h2>
+<tr><td>Username: </td><td><input type = text id = "un" name = "username" required></td></tr>
+<tr><td>Password: </td><td><input type = password id = "pw" name = "password" required></td></tr>
+<tr><td>Re-enter password: </td><td><input type= password id = "pw2" name = "password2" required></td></tr>
+<tr><td>Email: </td><td><input type = text id = "em" name = "email" required><br></td></tr>
+<tr>
+<td colspan="3"><input type=submit value="Submit">
+<input type=reset value="Reset"></td>
+</tr>
+</table>
 </form>""")
 
 main()

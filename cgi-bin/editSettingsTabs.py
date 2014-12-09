@@ -25,7 +25,7 @@ def main():
 		# following code block is from jqueryui.com/tabs
 		print """<head>
 			  <meta charset="utf-8">
-			  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+			  <link rel="stylesheet" href="http://elin9.rochestercs.org/experimenting/setting.css">
 			  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 			  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 			  <script src="http://elin9.rochestercs.org/jquery.cookie.js"></script>
@@ -36,8 +36,6 @@ def main():
 			  });
 			  </script>
 			</head>"""
-		#print "<link rel = \"stylesheet\" type = \"text/css\" href=\"http://elin9.rochestercs.org/experimenting/style.css\">"
-		
 		print '<script type="text/javascript">'
 		print """
 		$(document).ready(function() {
@@ -65,11 +63,16 @@ def main():
 		
 			$('#dle').click(function(){
 				user = $('input[name="sid"]').val();
-				$.post('/cgi-bin/deletePost.py', {list: list, user: user}, function(data){
-					alert("You are about to delete: "+ list);
-					console.log("success "+data);
-					$("#tabs-1-posts").load("printUserPost.py");
-				});
+				var r = confirm("You are about to delete: "+ list);
+				if(r==true){
+					$.post('/cgi-bin/deletePost.py', {list: list, user: user}, function(data){
+						console.log("success "+data);
+						$("#tabs-1-posts").load("printUserPost.py");
+					});
+				}
+				else{
+					alert('The delete is canceled, nothing is deleted');
+				}
  			}); 			
  
  		});"""
@@ -77,7 +80,8 @@ def main():
 		
 		print '<body>'
 		print '<div id="header"><div id ="banner" style = "z-index:1;">'
-		print '<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/banner2.png"/></a></div>'
+		print '<?php include("http://elin9.rochestercs.org/remove.php"); ?>'
+		print '<a href = "http://elin9.rochestercs.org/cgi-bin/index.php"><img src="http://elin9.rochestercs.org/img/bann.png"/></a></div>'
 		print '<div id = "loginbox">'
 		print "<form style = \"display: inline;\"method = post action = \"http://elin9.rochestercs.org/cgi-bin/logout.py\">"
 		print "<input type = hidden name = \"sid\" value = " + str(user) + ">"
