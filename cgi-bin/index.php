@@ -134,7 +134,6 @@ $(document).ready(function() {
 
         success: function(data) {
           console.dir(data);
-          //window.location.replace('http://elin9.rochestercs.org/cgi-bin/index.php');
           if ($.cookie("name") === undefined){
              $("#right").append(data + "<br>");
           } else{
@@ -338,7 +337,7 @@ function showpage(data){
 					<td rowspan="2"><img id="previewPic" src="#" alt="uploadPic" style="display:none; width:160px; height:160px; border=1px solid #aaa;"/><div id="preview"></div></td>
 					<td colspan="2" rowspan="4">
 						<table width="100%">
-							<tr><td width="45%"><label for= "Price">Price:</label></td>
+							<tr><td width="45%"><label for= "Price">Price: </label></td>
 						    <td><input name = "price" class="try" type = number step = "0.01" min = "0" required/></td></tr>
 							<tr><td><label for= "Other notes">Other notes:</label></td></tr>
 							<tr><td colspan="3"><textarea name = "othernotes" class="try" type = text ></textarea></td></tr>         

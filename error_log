@@ -316,3 +316,11 @@
 [08-Dec-2014 21:11:35 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
 [08-Dec-2014 21:11:48 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/.): Is a directory in /home1/elinninr/public_html/remove.php on line 21
 [08-Dec-2014 21:11:48 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 14:46:20 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/.): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 14:46:20 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 14:51:05 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/.): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 14:51:05 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 15:21:26 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/.): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 15:21:26 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 16:34:14 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/.): Is a directory in /home1/elinninr/public_html/remove.php on line 21
+[09-Dec-2014 16:34:14 America/Denver] PHP Warning:  unlink(/home1/elinninr/public_html/upload/..): Is a directory in /home1/elinninr/public_html/remove.php on line 21
